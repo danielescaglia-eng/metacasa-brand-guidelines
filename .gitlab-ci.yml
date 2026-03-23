@@ -1,10 +1,12 @@
+image: alpine:latest
+
 pages:
   stage: deploy
   script:
     - mkdir -p public
-    - cp -r *.html *.svg public/
+    - cp *.html *.svg public/
   artifacts:
     paths:
       - public
-  only:
-    - main
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
