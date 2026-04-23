@@ -3,626 +3,561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metacasa Brand Guidelines 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Metacasa — Brand Asset Hub (Website Style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --purple: #7A00DF;
-  --deep-purple: #4F23CC;
-  --violet: #6D28D9;
-  --cyan: #06B6D4;
-  --orange: #F97316;
-  --green: #00D084;
-  --black: #000000;
-  --dark: #0F0F1A;
-  --gray-900: #111827;
-  --gray-700: #313131;
-  --gray-400: #ABB8C3;
-  --gray-200: #EEEEEE;
-  --white: #FFFFFF;
-  --gradient-ai: linear-gradient(135deg, #7A00DF, #06B6D4);
-  --gradient-hero: linear-gradient(135deg, #0F0F1A 0%, #1a0a2e 50%, #0F0F1A 100%);
+/* ── Reset & Base ──────────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100vw}
+html{scroll-behavior:smooth}
+img{max-width:100%;height:auto}
+body{font-family:'Lato',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .5s,color .5s}
+::selection{background:#7a00df;color:#fff}
+
+/* ── Light Theme (default) ───────────────────────────────────────────── */
+:root{
+  --purple:#7a00df;--deep:#4F23CC;--violet:#6D28D9;
+  --orange:#F97316;--cyan:#0693e3;--green:#00D084;
+  --bg:#ffffff;--bg-alt:#fafafa;--bg-card:#ffffff;
+  --text:#313131;--text-muted:#666;--text-faint:#ABB8C3;
+  --border:#f0f0f0;--border-strong:#e0e0e0;
+  --dark-bg:#0d0d0d;
+  --gradient:linear-gradient(135deg,#7a00df,#06B6D4);
+  --font-h:'Lato',system-ui,sans-serif;
+  --font-accent:'Montserrat',system-ui,sans-serif;
+  --font-b:'Lato',system-ui,sans-serif;
+  --font-m:'JetBrains Mono','Fira Code',monospace;
+  --max:1200px;--radius:16px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);
+  --shadow-md:0 8px 24px rgba(0,0,0,.08);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.12);
+  --nav-bg:rgba(255,255,255,0.97);
+  --swatch-bg:#fff;
+  --card-hover-shadow:0 8px 24px rgba(0,0,0,.08);
+  --table-th:#ABB8C3;--table-border:#f5f5f5;
+  --token-bg:#fafafa;--token-border:#f0f0f0;
+  --voice-do-bg:rgba(0,208,132,0.04);--voice-do-border:rgba(0,208,132,0.12);
+  --voice-dont-bg:rgba(239,68,68,0.03);--voice-dont-border:rgba(239,68,68,0.08);
+  --comp-old-bg:rgba(239,68,68,0.03);--comp-old-border:rgba(239,68,68,0.08);
+  --comp-new-bg:rgba(122,0,223,0.03);--comp-new-border:rgba(122,0,223,0.12);
+  --hero-blob:rgba(122,0,223,0.06);
+  --footer-border:#f0f0f0;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: var(--gray-900);
-  background: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+/* ── Dark Theme ──────────────────────────────────────────────────────── */
+  --bg:#1a1530;--bg-alt:#1f1a38;--bg-card:#241e40;
+  --text:#e8e8f0;--text-muted:#9898b0;--text-faint:#5a5a78;
+  --border:#2e2650;--border-strong:#3a3060;
+  --nav-bg:rgba(26,21,48,0.95);
+  --swatch-bg:#241e40;
+  --card-hover-shadow:0 8px 30px rgba(122,0,223,.15);
+  --table-th:#5a5a78;--table-border:#2e2650;
+  --token-bg:#1f1a38;--token-border:#2e2650;
+  --voice-do-bg:rgba(0,208,132,0.06);--voice-do-border:rgba(0,208,132,0.15);
+  --voice-dont-bg:rgba(239,68,68,0.06);--voice-dont-border:rgba(239,68,68,0.12);
+  --comp-old-bg:rgba(239,68,68,0.08);--comp-old-border:rgba(239,68,68,0.15);
+  --comp-new-bg:rgba(122,0,223,0.1);--comp-new-border:rgba(122,0,223,0.25);
+  --hero-blob:rgba(122,0,223,0.12);
+  --footer-border:#2e2650;
+  --shadow-md:0 8px 24px rgba(0,0,0,.3);
 }
 
-/* ── NAV ── */
-.nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 0 2rem;
-}
-.nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 56px;
-}
-.nav-brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; }
-.nav-brand span { background: var(--gradient-ai); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.nav-links { display: flex; gap: 1.5rem; list-style: none; font-size: 0.85rem; font-weight: 500; }
-.nav-links a { color: var(--gray-700); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--purple); }
+/* ── Layout ────────────────────────────────────────────────────────────── */
+.container{padding:0}
+.section{padding:4rem 2rem;max-width:1200px;margin:0 auto}
+.section+.section{border-top:1px solid var(--border)}
 
-/* ── HERO ── */
-.hero {
-  background: var(--gradient-hero);
-  color: var(--white);
-  padding: 5rem 2rem 4rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(122,0,223,0.15) 0%, transparent 70%);
-}
-.hero-content { position: relative; max-width: 800px; margin: 0 auto; }
-.hero-badge {
-  display: inline-block;
-  background: rgba(122,0,223,0.2);
-  border: 1px solid rgba(122,0,223,0.4);
-  border-radius: 999px;
-  padding: 0.35rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 1.5rem;
-}
-.hero h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
-.hero h1 em {
-  font-style: normal;
-  background: var(--gradient-ai);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero p { font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
-.hero-meta {
-  margin-top: 2.5rem;
-  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
-  font-size: 0.8rem; color: rgba(255,255,255,0.4);
-}
+/* ── Typography ────────────────────────────────────────────────────────── */
+h1{font-family:var(--font-h);font-size:50px;font-weight:700;line-height:1.15;color:var(--text)}
+h2{font-family:var(--font-h);font-size:42px;font-weight:900;line-height:1.15;margin-bottom:1.5rem;color:var(--text)}
+h3{font-family:var(--font-h);font-size:24px;font-weight:700;line-height:1.3;margin-bottom:1rem;color:var(--text)}
+h4{font-family:var(--font-accent);font-size:16px;font-weight:700;margin-bottom:0.75rem;color:var(--text)}
+.subtitle{color:var(--text-faint);font-size:13px;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;font-family:var(--font-accent)}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--purple);color:#fff;font-size:14px;font-weight:700;margin-right:0.5rem;vertical-align:middle;font-family:var(--font-accent)}
 
-/* ── SECTIONS ── */
-.section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-.section-dark { background: var(--dark); color: var(--white); padding: 4rem 2rem; }
-.section-dark .section-inner { max-width: 1200px; margin: 0 auto; }
-.section-gray { background: #FAFAFA; padding: 4rem 2rem; }
-.section-gray .section-inner { max-width: 1200px; margin: 0 auto; }
-.section-purple { background: var(--gradient-hero); color: var(--white); padding: 4rem 2rem; }
-.section-purple .section-inner { max-width: 1200px; margin: 0 auto; }
+/* ── Sticky Nav ──────────────────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:100;height:64px;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 2rem;transition:background .5s,border .5s}
+.nav-logo{font-family:var(--font-accent);font-weight:800;font-size:18px;margin-right:auto;text-decoration:none;color:var(--text);letter-spacing:0.02em;display:flex;align-items:center;gap:10px}
+.nav-logo img{height:28px;width:auto}
+.nav a.nav-link{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;padding:8px 16px;border-radius:8px;transition:all .2s;font-family:var(--font-b)}
+.nav a.nav-link:hover{color:var(--purple);background:rgba(122,0,223,0.04)}
+.nav-links{display:flex;gap:4px;align-items:center}
+@media(max-width:768px){.nav-links{display:none}}
 
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--purple);
-  margin-bottom: 0.5rem;
-}
-.section-dark .section-label { color: var(--cyan); }
-.section-purple .section-label { color: var(--cyan); }
+/* ── Theme Toggle ────────────────────────────────────────────────────── */
 
-h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-}
-h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 2rem 0 0.75rem;
-  color: var(--gray-900);
-}
-.section-dark h3, .section-purple h3 { color: var(--white); }
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+.hero{background:#fff;color:#313131;padding:5rem 2rem 4rem;text-align:left;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse at center, rgba(122,0,223,0.06) 0%, transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0;position:relative;display:flex;align-items:center;gap:4rem}
+.hero-text{flex:1}
+.hero h1{font-size:52px;margin-bottom:1rem;line-height:1.12;color:#313131}
+.hero h1 em{font-style:normal;color:#7a00df}
+.hero p{font-size:18px;color:#666;max-width:500px;line-height:1.7}
+.hero .version{font-size:13px;color:#ABB8C3;margin-top:1.5rem}
+.hero-visual{flex:1;text-align:right}
+.hero-badge{display:inline-block;background:rgba(122,0,223,0.08);color:#7a00df;font-size:12px;font-weight:700;padding:6px 16px;border-radius:999px;margin-bottom:1.5rem;letter-spacing:0.05em;text-transform:uppercase;font-family:var(--font-accent)}
+.btn-hero{display:inline-block;background:var(--purple);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-size:16px;font-weight:600;margin-top:2rem;transition:all .25s;font-family:var(--font-b)}
+.btn-hero:hover{background:var(--deep);transform:translateY(-1px);box-shadow:0 8px 20px rgba(122,0,223,0.25)}
+.btn-hero--outline{background:transparent;border:2px solid #313131;color:#313131;margin-left:1rem}
+.btn-hero--outline:hover{background:#313131;color:#fff;border-color:#313131}
 
-.section-desc {
-  color: var(--gray-700);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-  max-width: 700px;
-}
-.section-dark .section-desc { color: rgba(255,255,255,0.6); }
+/* ── Grids ─────────────────────────────────────────────────────────────── */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.grid-5{grid-template-columns:repeat(2,1fr)}}
 
-/* ── QUICK REF ── */
-.quick-ref {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.qr-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-.qr-card .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 0.35rem; }
-.qr-card .value { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); }
-.qr-card .value code { background: rgba(122,0,223,0.2); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.85rem; }
+/* ── Color Swatches ──────────────────────────────────────────────────── */
+.swatch-card{border-radius:var(--radius);overflow:hidden;min-width:0;background:var(--swatch-bg);border:1px solid var(--border);cursor:pointer;transition:all .3s}
+.swatch-card:hover{transform:translateY(-3px);box-shadow:var(--card-hover-shadow)}
+.swatch-color{height:110px}
+.swatch-info{padding:14px 18px}
+.swatch-name{font-family:var(--font-accent);font-weight:700;font-size:14px;color:var(--text)}
+.swatch-hex{font-family:var(--font-m);font-size:13px;color:var(--text-faint);margin-top:2px}
+.swatch-use{font-size:12px;color:var(--text-faint);margin-top:4px}
 
-/* ── COLOR SWATCHES ── */
-.color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
-.swatch {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-}
-.swatch-color { height: 80px; }
-.swatch-info { padding: 0.75rem; }
-.swatch-name { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem; }
-.swatch-hex { font-family: 'Space Grotesk', monospace; font-size: 0.8rem; color: var(--gray-700); }
-.swatch-usage { font-size: 0.72rem; color: var(--gray-400); margin-top: 0.25rem; }
+/* ── Toast ─────────────────────────────────────────────────────────────── */
+.toast{position:fixed;top:20px;right:20px;background:var(--green);color:#fff;padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
 
-/* ── TYPOGRAPHY SHOWCASE ── */
-.type-sample {
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 1rem;
-}
-.type-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-.type-row:last-child { border-bottom: none; }
-.type-preview { flex: 1; }
-.type-meta { font-size: 0.75rem; color: var(--gray-400); text-align: right; white-space: nowrap; margin-left: 1rem; }
+/* ── Gradient Bar ─────────────────────────────────────────────────────── */
+.gradient-bar{height:60px;border-radius:var(--radius);background:var(--gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-m);font-size:13px;cursor:pointer;transition:all .3s}
+.gradient-bar:hover{box-shadow:0 0 40px rgba(122,0,223,.25);transform:scale(1.005)}
 
-/* ── TABLES ── */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.85rem;
-}
-th {
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--gray-400);
-  padding: 0.75rem 1rem;
-  border-bottom: 2px solid var(--gray-200);
-}
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--gray-200);
-  vertical-align: top;
-}
-.section-dark table th { color: rgba(255,255,255,0.4); border-bottom-color: rgba(255,255,255,0.1); }
-.section-dark table td { border-bottom-color: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
-.section-purple table th { color: rgba(255,255,255,0.4); border-bottom-color: rgba(255,255,255,0.1); }
-.section-purple table td { border-bottom-color: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
+/* ── Type Scale ──────────────────────────────────────────────────────── */
+.type-row{display:flex;align-items:baseline;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.type-meta{min-width:180px;flex-shrink:0}
+.type-label{font-family:var(--font-accent);font-weight:700;font-size:13px;color:var(--purple)}
+.type-specs{font-size:11px;color:var(--text-faint);margin-top:2px;font-family:var(--font-m)}
+.type-preview{flex:1;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
 
-td strong { color: var(--gray-900); }
-.section-dark td strong, .section-purple td strong { color: var(--white); }
+/* ── Font Cards ──────────────────────────────────────────────────────── */
+.font-card{background:var(--bg-alt);border-radius:var(--radius);padding:2.5rem;border:1px solid var(--border);transition:all .5s}
+.font-card .chars{font-size:36px;margin:1.25rem 0;letter-spacing:1px;color:var(--text)}
+.font-card .weights{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.font-card .weight-sample{font-size:14px;color:var(--text-muted)}
 
-/* ── CARDS GRID ── */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
-.card {
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
-  padding: 1.5rem;
-  background: var(--white);
-}
-.card-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-.card h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
-.card p { font-size: 0.85rem; color: var(--gray-700); line-height: 1.5; }
+/* ── Logo Area ────────────────────────────────────────────────────────── */
+.logo-card{border-radius:var(--radius);overflow:hidden;padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:220px;position:relative;transition:all .5s}
+.logo-card--light{background:var(--bg-alt);border:1px solid var(--border)}
+.logo-card--dark{background:#151520}
+.logo-card--ref{background:var(--bg-alt);border:1px solid var(--border)}
 
-.card-dark {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(255,255,255,0.08);
-}
-.card-dark h4 { color: var(--white); }
-.card-dark p { color: rgba(255,255,255,0.6); }
+/* ── Download Buttons ─────────────────────────────────────────────────── */
+.dl-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:0.75rem}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--purple);text-decoration:none;padding:8px 16px;border:1.5px solid rgba(122,0,223,0.2);border-radius:9999px;transition:all .25s;font-family:var(--font-accent)}
+.dl-btn:hover{background:var(--purple);color:#fff;border-color:var(--purple)}
+.dl-btn svg{width:14px;height:14px}
+.dl-btn--white{color:#fff;border-color:rgba(255,255,255,0.3)}
+.dl-btn--white:hover{background:#fff;color:var(--purple);border-color:#fff}
 
-/* ── VOICE GRID ── */
-.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-.voice-do, .voice-dont {
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-.voice-do { background: rgba(0,208,132,0.06); border: 1px solid rgba(0,208,132,0.15); }
-.voice-dont { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.1); }
-.voice-do h4 { color: #059669; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
-.voice-dont h4 { color: #DC2626; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
-.voice-do li, .voice-dont li { font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--gray-700); }
+/* ── Cards ────────────────────────────────────────────────────────────── */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:all .3s}
+.card:hover{box-shadow:var(--card-hover-shadow);transform:translateY(-2px)}
+.card h4{font-family:var(--font-accent)}
 
-/* ── COMPARISON ── */
-.comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: start; margin: 1.5rem 0; }
-.comp-col { border-radius: 12px; padding: 1.5rem; }
-.comp-old { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.1); }
-.comp-new { background: rgba(122,0,223,0.04); border: 1px solid rgba(122,0,223,0.15); }
-.comp-arrow { display: flex; align-items: center; font-size: 1.5rem; color: var(--gray-400); padding-top: 2rem; }
-.comp-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-.comp-old h4 { color: #DC2626; }
-.comp-new h4 { color: var(--purple); }
-.comp-item { font-size: 0.85rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.comp-item:last-child { border-bottom: none; }
+/* ── Dark Section ────────────────────────────────────────────────────── */
+.section-dark{background:#1a1530;color:#fff;padding:5rem 0;border:none;transition:background .5s}
+.section-dark .section-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section-dark h2,.section-dark h3{color:#fff !important}
+.section-dark .subtitle{color:rgba(255,255,255,0.4)}
+.section-dark p{color:rgba(255,255,255,0.65)}
+.section-dark table th{color:rgba(255,255,255,0.35);border-bottom-color:rgba(255,255,255,0.08)}
+.section-dark table td{border-bottom-color:rgba(255,255,255,0.05);color:rgba(255,255,255,0.8)}
+.section-dark td strong{color:#fff !important}
 
-/* ── METRIC CARDS ── */
-.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-.metric {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.metric-value {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  background: var(--gradient-ai);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.metric-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+/* ── Purple Section ──────────────────────────────────────────────────── */
+.section-purple{background:linear-gradient(180deg, #1a1530 0%, #251845 50%, #1a1530 100%);color:#fff;padding:5rem 0;border:none;position:relative;transition:background .5s}
+.section-purple::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(122,0,223,0.3),transparent)}
+.section-purple .section-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section-purple h2,.section-purple h3{color:#fff !important}
+.section-purple .subtitle{color:rgba(255,255,255,0.4)}
+.section-purple p{color:rgba(255,255,255,0.65)}
+.section-purple table th{color:rgba(255,255,255,0.35);border-bottom-color:rgba(255,255,255,0.08)}
+.section-purple table td{border-bottom-color:rgba(255,255,255,0.05);color:rgba(255,255,255,0.8)}
+.section-purple td strong{color:#fff !important}
 
-/* ── GRADIENT BAR ── */
-.gradient-bar {
-  height: 60px;
-  border-radius: 12px;
-  margin: 1rem 0;
-}
+/* ── Metric Cards ────────────────────────────────────────────────────── */
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2rem}
+.metric-card{background:rgba(255,255,255,0.04);border:1px solid rgba(122,0,223,0.2);border-radius:var(--radius);padding:2rem;text-align:center;transition:all .3s}
+.metric-card:hover{border-color:var(--purple);box-shadow:0 0 30px rgba(122,0,223,0.15)}
+.metric-value{font-family:var(--font-accent);font-size:36px;font-weight:700;letter-spacing:-0.02em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.metric-label{font-size:13px;color:rgba(255,255,255,0.5);margin-top:0.25rem}
 
-/* ── BLOCKQUOTE ── */
-blockquote {
-  border-left: 3px solid var(--purple);
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  background: rgba(122,0,223,0.03);
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  color: var(--gray-700);
-}
-.section-dark blockquote {
-  background: rgba(122,0,223,0.1);
-  color: rgba(255,255,255,0.8);
-  border-left-color: var(--cyan);
-}
+/* ── Voice Cards ─────────────────────────────────────────────────────── */
+.voice-do,.voice-dont{border-radius:var(--radius);padding:2rem;transition:all .5s}
+.voice-do{background:var(--voice-do-bg);border:1px solid var(--voice-do-border)}
+.voice-dont{background:var(--voice-dont-bg);border:1px solid var(--voice-dont-border)}
+.voice-do h4{color:#059669;font-family:var(--font-accent);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem}
+.voice-dont h4{color:#DC2626;font-family:var(--font-accent);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem}
+.voice-do li,.voice-dont li{font-size:14px;margin-bottom:0.5rem;color:var(--text);list-style:none}
 
-/* ── FOOTER ── */
-.footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  font-size: 0.8rem;
-  color: var(--gray-400);
-  border-top: 1px solid var(--gray-200);
-}
+/* ── Tables ───────────────────────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:14px}
+th{text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--table-th);padding:0.75rem 1rem;border-bottom:2px solid var(--border);font-family:var(--font-accent)}
+td{padding:0.75rem 1rem;border-bottom:1px solid var(--table-border);vertical-align:top;color:var(--text)}
+td strong{color:var(--text)}
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .voice-grid, .comparison { grid-template-columns: 1fr; }
-  .comp-arrow { justify-content: center; transform: rotate(90deg); padding: 0; }
-  .nav-links { display: none; }
-}
+/* ── Comparison ──────────────────────────────────────────────────────── */
+.comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:start;margin:2rem 0}
+.comp-col{border-radius:var(--radius);padding:2rem}
+.comp-old{background:var(--comp-old-bg);border:1px solid var(--comp-old-border)}
+.comp-new{background:var(--comp-new-bg);border:1px solid var(--comp-new-border)}
+.comp-arrow{display:flex;align-items:center;font-size:1.5rem;color:var(--text-faint);padding-top:2rem}
+.comp-col h4{font-size:12px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;font-family:var(--font-accent)}
+.comp-old h4{color:#DC2626}
+.comp-new h4{color:var(--purple)}
+.comp-item{font-size:14px;padding:0.6rem 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.comp-item:last-child{border-bottom:none}
 
-@media print {
-  .nav { display: none; }
-  .hero { padding: 2rem; }
-  .section, .section-dark, .section-gray, .section-purple { padding: 2rem 1rem; }
-  .section-dark, .section-purple { background: var(--white) !important; color: var(--black) !important; }
+/* ── Token Block ─────────────────────────────────────────────────────── */
+.token-block{background:var(--token-bg);border:1px solid var(--token-border);border-radius:var(--radius);padding:1.25rem 1.5rem;font-family:var(--font-m);font-size:12px;line-height:2;overflow-x:auto;white-space:pre;transition:all .5s}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.footer{text-align:center;padding:3rem 2rem;font-size:13px;color:var(--text-faint);border-top:1px solid var(--footer-border);transition:all .5s}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media(max-width:768px){
+  .comparison{grid-template-columns:1fr}
+  .comp-arrow{justify-content:center;transform:rotate(90deg);padding:0}
+  .hero-inner{flex-direction:column;text-align:center}
+  .hero h1{font-size:36px}
+  .hero-visual{display:none}
 }
+@media print{.nav{display:none}.hero{padding:2rem}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-inner">
-    <div class="nav-brand"><span>Metacasa</span> Brand Guidelines</div>
-    <ul class="nav-links">
-      <li><a href="#colors">Colors</a></li>
-      <li><a href="#typography">Typography</a></li>
-      <li><a href="#voice">Voice</a></li>
-      <li><a href="#imagery">Imagery</a></li>
-      <li><a href="#positioning">Positioning</a></li>
-      <li><a href="#innovation">Innovation</a></li>
-    </ul>
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDA0LjE1IDY1LjI3Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50Mik7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxZDFkMWI7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIG9wYWNpdHk6IC4xNTsKICAgICAgfQoKICAgICAgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogIzEzMTEwYzsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KCiAgICAgIC5zdDQgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KCiAgICAgIC5zdDUgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgb3BhY2l0eTogLjE7CiAgICAgIH0KCiAgICAgIC5zdDYgewogICAgICAgIGNsaXAtcnVsZTogZXZlbm9kZDsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuc3Q3IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtMik7CiAgICAgIH0KCiAgICAgIC5zdDggewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLnN0OSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjU4LjUzIDMwLjA5IDU4LjUzIDQ3LjY4IDY0LjIyIDU0LjUxIDczLjc2IDU2LjQ3IDczLjc2IDQ1LjQ3IDczLjc2IDQyLjU5IDczLjc2IDIxLjI5IDU1LjMyIDEwLjY1IDM2Ljg4IDAgMjEuNjUgOC44IDM2Ljg4IDE3LjU5IDU4LjUzIDMwLjA5Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItNzI3LjAzIiB5MT0iLTc5MC45NCIgeDI9Ii03NzkuMiIgeTI9Ii04MzguNTYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzQ3MmI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ3IiBzdG9wLWNvbG9yPSIjMmZiMTk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2JjY2YwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDYiIHBvaW50cz0iMTUuMjMgNjUuMjcgNTguNTMgNjUuMjcgNzMuNzYgNTYuNDcgNTguNTMgNDcuNjggMTUuMjMgNDcuNjggMTIuMzcgNTUuOTkgMTUuMjMgNjUuMjciLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDEiIHgxPSItNzkzLjUzIiB5MT0iLTc5NC43NiIgeDI9Ii03MjkuMjUiIHkyPSItNzk0Ljc2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMy4wMSA4NDQuOTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5NGM5NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40OSIgc3RvcC1jb2xvcj0iI2VhNGU4ZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmJjMjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjE1LjIzIDQ3LjY4IDE1LjIzIDMwLjA5IDM2Ljg4IDE3LjU5IDIxLjY1IDguNzkgMTguNDQgMTAuNjUgMCAyMS4yOSAwIDQyLjU5IDAgNDYuNjIgMCA1Ni40NyAxNS4yMyA2NS4yNyAxNS4yMyA0Ny42OCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii03ODQuNTciIHkxPSItODM4LjY5IiB4Mj0iLTc4NC41NyIgeTI9Ii03ODYuODciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWY4NGM3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjN2M1ZmE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NjNjRhMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGc+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjEzNy45IDU2LjMgMTM0LjcyIDU2LjMgMTM0LjcyIDI3Ljk3IDEyMS42OSA0OS43MyAxMTkuNjcgNDkuNzMgMTA2LjY0IDI3Ljk3IDEwNi42NCA1Ni4zIDEwMy40NyA1Ni4zIDEwMy40NyAyMC43NSAxMDQuNCAyMC43NSAxMDQuOTIgMjAuNzUgMTA1Ljk3IDIwLjc1IDEyMC42OCA0NS4zMSAxMzUuMzkgMjAuNzUgMTM2LjQ0IDIwLjc1IDEzNi45NSAyMC43NSAxMzcuOSAyMC43NSAxMzcuOSA1Ni4zIi8+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjE3Ni4wNSA1Ni4zIDE1MS45NSA1Ni4zIDE1MS45NSAyMC43NSAxNzUuNjMgMjAuNzUgMTc1LjYzIDIzLjkyIDE1NS4xMiAyMy45MiAxNTUuMTIgMzYuNTYgMTczLjA5IDM2LjU2IDE3My4wOSAzOS43NCAxNTUuMTIgMzkuNzQgMTU1LjEyIDUzLjEzIDE3Ni4wNSA1My4xMyAxNzYuMDUgNTYuMyIvPgogICAgPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIyMDAuMDMgNTYuMyAxOTYuODYgNTYuMyAxOTYuODYgMjMuOTIgMTg0LjA5IDIzLjkyIDE4NC4wOSAyMC43NSAyMTIuNzkgMjAuNzUgMjEyLjc5IDIzLjkyIDIwMC4wMyAyMy45MiAyMDAuMDMgNTYuMyIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTI1MS45Niw1Ni4zaC0zLjQ3bC01LjE4LTExLjkyaC0xNS45OGwtNS4yLDExLjkyaC0zLjQ3bDE1LjUyLTM1LjU1aDIuMzFsMTUuNDcsMzUuNTVaTTIyOC43MSw0MS4yMWgxMy4yMmwtNi42LTE1LjE4LTYuNjIsMTUuMThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjc1Ljg4LDU2LjU0Yy0yLjQzLDAtNC42OS0uNTQtNi43NC0xLjYxLTIuMDEtMS4wNS0zLjc5LTIuNDctNS4yNi00LjIxLTEuNDctMS43NC0yLjYyLTMuNzEtMy40MS01Ljg4LS43OS0yLjE2LTEuMTktNC4zOS0xLjE5LTYuNnMuMzgtNC4yNSwxLjEyLTYuMzFjLjc0LTIuMDcsMS44NC0zLjk4LDMuMjctNS42OSwxLjQ0LTEuNzIsMy4yMi0zLjEyLDUuMjktNC4xNiwyLjA5LTEuMDQsNC41LTEuNTcsNy4xNy0xLjU3LDMuMTgsMCw1LjkzLjc1LDguMTcsMi4yMiwyLjIzLDEuNDcsMy45MSwzLjM4LDUsNS42OWwuNTQsMS4xNS0zLC45NS0uNDMtLjgzYy0uNzctMS40Ny0xLjcyLTIuNjYtMi44NC0zLjUzLTEuMTQtLjg4LTIuMzYtMS41Mi0zLjY1LTEuOS0xLjMxLS4zOS0yLjY1LS41OS0zLjk4LS41OS0yLjEzLDAtNC4wNC40Mi01LjY5LDEuMjQtMS42Ni44My0zLjA5LDEuOTYtNC4yMywzLjM3LTEuMTYsMS40Mi0yLjA1LDMuMDItMi42NSw0Ljc1LS42LDEuNzQtLjksMy41My0uOSw1LjM0LDAsMS45OC4zNSwzLjg5LDEuMDUsNS42Ny43LDEuNzksMS42OSwzLjQxLDIuOTQsNC44LDEuMjUsMS4zOSwyLjcxLDIuNSw0LjM2LDMuMzEsMi43OCwxLjM3LDYuMDUsMS42MSw5LjQzLjUsMS40LS40NiwyLjc0LTEuMTcsMy45OS0yLjEyLDEuMjEtLjkzLDIuMjEtMi4xNCwyLjk3LTMuNjJsLjQxLS43OSwzLjAzLjgtLjU0LDEuMmMtLjgyLDEuODEtMi4wNCwzLjM3LTMuNiw0LjYzLTEuNTMsMS4yMy0zLjI1LDIuMTgtNS4xLDIuODEtMS44NC42My0zLjY5Ljk1LTUuNS45NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMzAuMjksNTYuM2gtMy40N2wtNS4xOC0xMS45MmgtMTUuOTlsLTUuMiwxMS45MmgtMy40N2wxNS41Mi0zNS41NWgyLjMxbDE1LjQ3LDM1LjU1Wk0zMDcuMDMsNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTM1MS4yNSw1Ni41NGMtMS44NywwLTMuNjMtLjItNS4yMi0uNTktMS42MS0uNC0zLjE0LTEuMDItNC41NC0xLjgzLTEuMzktLjgxLTIuNzItMS44NC0zLjk3LTMuMDVsLS44Ny0uODUsMi40Mi0yLjEuNzQuNzZjLjc5LjgyLDEuNjIsMS41MywyLjQ2LDIuMTEuODMuNTgsMS43MywxLjA2LDIuNjcsMS40My45My4zNywxLjk0LjY1LDIuOTguODMsMS4wNS4xOCwyLjIuMjcsMy4zOC4yNywzLjA4LDAsNS41Mi0uNTcsNy4yNS0xLjY5LDEuNi0xLjA0LDIuMzgtMi41NiwyLjM4LTQuNjUsMC0xLjQtLjMxLTIuNTItLjk0LTMuMzMtLjY1LS44NS0xLjcxLTEuNTctMy4xNi0yLjEzLTEuNTctLjYxLTMuNjMtMS4xNy02LjEyLTEuNjYtMi40OC0uNDctNC42My0xLjAyLTYuMzgtMS42MS0xLjkxLS42NC0zLjQtMS41Ny00LjQxLTIuNzctMS4wNi0xLjI1LTEuNi0yLjk2LTEuNi01LjA3cy41NS00LjA0LDEuNjQtNS41NWMxLjA4LTEuNSwyLjYxLTIuNjUsNC41Ni0zLjQyLDEuODgtLjczLDQuMDgtMS4xMSw2LjU2LTEuMTEsMS40OSwwLDIuODcuMTQsNC4xMi40MiwxLjI4LjI5LDIuNDcuNzYsMy41NiwxLjM5LDEuMDguNjMsMi4xLDEuNDgsMy4wNSwyLjU0bC42OS43Ni0yLjEzLDIuMy0uODItLjg5Yy0uNjEtLjY2LTEuMjItMS4yMi0xLjgyLTEuNjUtLjU5LS40My0xLjIyLS43Ny0xLjg2LTEuMDEtLjY1LS4yNS0xLjM2LS40NC0yLjExLS41NS0uNzgtLjEyLTEuNjQtLjE4LTIuNTgtLjE4LTMuNDksMC02LjAyLjY0LTcuNTEsMS45Mi0xLjQ2LDEuMjQtMi4xNiwyLjg2LTIuMTYsNC45NSwwLDEuMzMuMjgsMi4zNy44NCwzLjA5LjU4Ljc1LDEuNTYsMS4zNywyLjg5LDEuODQsMS41LjUzLDMuNDcsMS4wNCw1Ljg4LDEuNTMsMi41MS41MSw0LjcyLDEuMSw2LjU4LDEuNzUsMS45OS43MSwzLjU2LDEuNjksNC42NiwyLjk0LDEuMTcsMS4zMiwxLjc2LDMuMTIsMS43Niw1LjM2LDAsMS41Mi0uMzEsMi45LS45Miw0LjEtLjYxLDEuMjEtMS41MiwyLjIzLTIuNjgsMy4wNC0xLjEyLjc4LTIuNDksMS4zOC00LjA2LDEuNzgtMS41My40LTMuMjguNi01LjE4LjZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDA0LjE1LDU2LjNoLTMuNDdsLTUuMTgtMTEuOTJoLTE1Ljk4bC01LjIsMTEuOTJoLTMuNDdsMTUuNTItMzUuNTVoMi4zMWwxNS40NywzNS41NVpNMzgwLjksNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8ZyBjbGFzcz0ic3Q5Ij4KICAgICAgICA8cmVjdCBjbGFzcz0ic3Q4IiB4PSIyMS42NSIgd2lkdGg9IjUyLjExIiBoZWlnaHQ9IjU2LjQ3Ii8+CiAgICAgIDwvZz4KICAgICAgPGcgY2xhc3M9InN0NSI+CiAgICAgICAgPHJlY3QgY2xhc3M9InN0NCIgeD0iMTIuMzciIHk9IjM1LjE4IiB3aWR0aD0iNjEuNCIgaGVpZ2h0PSIzMC4wOSIvPgogICAgICA8L2c+CiAgICAgIDxnIGNsYXNzPSJzdDciPgogICAgICAgIDxyZWN0IGNsYXNzPSJzdDAiIHk9IjguNzkiIHdpZHRoPSIzNi44OCIgaGVpZ2h0PSI1Ni40NyIvPgogICAgICA8L2c+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjAuOTggOS4xOCAzMy45OSAxOS4yNiAzNi44OCAxNy41OSAyMS42NSA4LjggMjAuOTggOS4xOCIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QzIiBwb2ludHM9IjU4LjUxIDQ3LjY4IDU4LjUxIDQ0LjE1IDczLjc0IDU1LjU5IDczLjc0IDU2LjQ4IDU4LjUxIDQ3LjY4Ii8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjIyIDY1LjI3IDE2LjA0IDY1LjI3IDE4LjY2IDQ3LjY3IDE1LjIyIDQ3LjcgMTUuMjIgNjUuMjciLz4KICA8L2c+Cjwvc3ZnPg==" alt="Metacasa" class="nav-logo-light" style="height:28px">
+    
+  </a>
+  <div class="nav-links">
+    <a href="#colors" class="nav-link">Colors</a>
+    <a href="#typography" class="nav-link">Typography</a>
+    <a href="#logo" class="nav-link">Logo</a>
+    <a href="#components" class="nav-link">Components</a>
+    <a href="#voice" class="nav-link">Voice</a>
+    <a href="#imagery" class="nav-link">Imagery</a>
+    <a href="#tokens" class="nav-link">Tokens</a>
+    <a href="#positioning" class="nav-link">Positioning</a>
   </div>
-</nav>
+  </nav>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Brand Guidelines 2026</div>
-    <h1>Metacasa <em>Brand System</em></h1>
-    <p>Il documento di riferimento per visual identity, voice, positioning e strategia del brand Metacasa.</p>
-    <div class="hero-meta">
-      <span>Ultimo aggiornamento: 23 Marzo 2026</span>
-      <span>Fonti: Website + Pitch Deck (91 slide)</span>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Brand Guidelines 2026</div>
+      <h1>Metacasa <em>Brand System</em></h1>
+      <p>Visual identity, voice, positioning e asset scaricabili per il brand Metacasa. Stile coerente con metacasa.ai</p>
+      <div style="margin-top:2rem">
+        <a href="#colors" class="btn-hero">Esplora gli asset</a>
+        <a href="#tokens" class="btn-hero btn-hero--outline">Download tokens</a>
+      </div>
+      <div class="version">v2.1 — Website Style — Aprile 2026</div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-box" style="width:280px;height:280px;max-width:100%;border-radius:24px;background:linear-gradient(135deg,rgba(122,0,223,0.08),rgba(6,147,227,0.08));display:flex;align-items:center;justify-content:center;margin-left:auto">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDA0LjE1IDY1LjI3Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50Mik7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxZDFkMWI7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIG9wYWNpdHk6IC4xNTsKICAgICAgfQoKICAgICAgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogIzEzMTEwYzsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KCiAgICAgIC5zdDQgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KCiAgICAgIC5zdDUgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgb3BhY2l0eTogLjE7CiAgICAgIH0KCiAgICAgIC5zdDYgewogICAgICAgIGNsaXAtcnVsZTogZXZlbm9kZDsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuc3Q3IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtMik7CiAgICAgIH0KCiAgICAgIC5zdDggewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLnN0OSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjU4LjUzIDMwLjA5IDU4LjUzIDQ3LjY4IDY0LjIyIDU0LjUxIDczLjc2IDU2LjQ3IDczLjc2IDQ1LjQ3IDczLjc2IDQyLjU5IDczLjc2IDIxLjI5IDU1LjMyIDEwLjY1IDM2Ljg4IDAgMjEuNjUgOC44IDM2Ljg4IDE3LjU5IDU4LjUzIDMwLjA5Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItNzI3LjAzIiB5MT0iLTc5MC45NCIgeDI9Ii03NzkuMiIgeTI9Ii04MzguNTYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzQ3MmI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ3IiBzdG9wLWNvbG9yPSIjMmZiMTk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2JjY2YwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDYiIHBvaW50cz0iMTUuMjMgNjUuMjcgNTguNTMgNjUuMjcgNzMuNzYgNTYuNDcgNTguNTMgNDcuNjggMTUuMjMgNDcuNjggMTIuMzcgNTUuOTkgMTUuMjMgNjUuMjciLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDEiIHgxPSItNzkzLjUzIiB5MT0iLTc5NC43NiIgeDI9Ii03MjkuMjUiIHkyPSItNzk0Ljc2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMy4wMSA4NDQuOTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5NGM5NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40OSIgc3RvcC1jb2xvcj0iI2VhNGU4ZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmJjMjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjE1LjIzIDQ3LjY4IDE1LjIzIDMwLjA5IDM2Ljg4IDE3LjU5IDIxLjY1IDguNzkgMTguNDQgMTAuNjUgMCAyMS4yOSAwIDQyLjU5IDAgNDYuNjIgMCA1Ni40NyAxNS4yMyA2NS4yNyAxNS4yMyA0Ny42OCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii03ODQuNTciIHkxPSItODM4LjY5IiB4Mj0iLTc4NC41NyIgeTI9Ii03ODYuODciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWY4NGM3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjN2M1ZmE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NjNjRhMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGc+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjEzNy45IDU2LjMgMTM0LjcyIDU2LjMgMTM0LjcyIDI3Ljk3IDEyMS42OSA0OS43MyAxMTkuNjcgNDkuNzMgMTA2LjY0IDI3Ljk3IDEwNi42NCA1Ni4zIDEwMy40NyA1Ni4zIDEwMy40NyAyMC43NSAxMDQuNCAyMC43NSAxMDQuOTIgMjAuNzUgMTA1Ljk3IDIwLjc1IDEyMC42OCA0NS4zMSAxMzUuMzkgMjAuNzUgMTM2LjQ0IDIwLjc1IDEzNi45NSAyMC43NSAxMzcuOSAyMC43NSAxMzcuOSA1Ni4zIi8+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjE3Ni4wNSA1Ni4zIDE1MS45NSA1Ni4zIDE1MS45NSAyMC43NSAxNzUuNjMgMjAuNzUgMTc1LjYzIDIzLjkyIDE1NS4xMiAyMy45MiAxNTUuMTIgMzYuNTYgMTczLjA5IDM2LjU2IDE3My4wOSAzOS43NCAxNTUuMTIgMzkuNzQgMTU1LjEyIDUzLjEzIDE3Ni4wNSA1My4xMyAxNzYuMDUgNTYuMyIvPgogICAgPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIyMDAuMDMgNTYuMyAxOTYuODYgNTYuMyAxOTYuODYgMjMuOTIgMTg0LjA5IDIzLjkyIDE4NC4wOSAyMC43NSAyMTIuNzkgMjAuNzUgMjEyLjc5IDIzLjkyIDIwMC4wMyAyMy45MiAyMDAuMDMgNTYuMyIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTI1MS45Niw1Ni4zaC0zLjQ3bC01LjE4LTExLjkyaC0xNS45OGwtNS4yLDExLjkyaC0zLjQ3bDE1LjUyLTM1LjU1aDIuMzFsMTUuNDcsMzUuNTVaTTIyOC43MSw0MS4yMWgxMy4yMmwtNi42LTE1LjE4LTYuNjIsMTUuMThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjc1Ljg4LDU2LjU0Yy0yLjQzLDAtNC42OS0uNTQtNi43NC0xLjYxLTIuMDEtMS4wNS0zLjc5LTIuNDctNS4yNi00LjIxLTEuNDctMS43NC0yLjYyLTMuNzEtMy40MS01Ljg4LS43OS0yLjE2LTEuMTktNC4zOS0xLjE5LTYuNnMuMzgtNC4yNSwxLjEyLTYuMzFjLjc0LTIuMDcsMS44NC0zLjk4LDMuMjctNS42OSwxLjQ0LTEuNzIsMy4yMi0zLjEyLDUuMjktNC4xNiwyLjA5LTEuMDQsNC41LTEuNTcsNy4xNy0xLjU3LDMuMTgsMCw1LjkzLjc1LDguMTcsMi4yMiwyLjIzLDEuNDcsMy45MSwzLjM4LDUsNS42OWwuNTQsMS4xNS0zLC45NS0uNDMtLjgzYy0uNzctMS40Ny0xLjcyLTIuNjYtMi44NC0zLjUzLTEuMTQtLjg4LTIuMzYtMS41Mi0zLjY1LTEuOS0xLjMxLS4zOS0yLjY1LS41OS0zLjk4LS41OS0yLjEzLDAtNC4wNC40Mi01LjY5LDEuMjQtMS42Ni44My0zLjA5LDEuOTYtNC4yMywzLjM3LTEuMTYsMS40Mi0yLjA1LDMuMDItMi42NSw0Ljc1LS42LDEuNzQtLjksMy41My0uOSw1LjM0LDAsMS45OC4zNSwzLjg5LDEuMDUsNS42Ny43LDEuNzksMS42OSwzLjQxLDIuOTQsNC44LDEuMjUsMS4zOSwyLjcxLDIuNSw0LjM2LDMuMzEsMi43OCwxLjM3LDYuMDUsMS42MSw5LjQzLjUsMS40LS40NiwyLjc0LTEuMTcsMy45OS0yLjEyLDEuMjEtLjkzLDIuMjEtMi4xNCwyLjk3LTMuNjJsLjQxLS43OSwzLjAzLjgtLjU0LDEuMmMtLjgyLDEuODEtMi4wNCwzLjM3LTMuNiw0LjYzLTEuNTMsMS4yMy0zLjI1LDIuMTgtNS4xLDIuODEtMS44NC42My0zLjY5Ljk1LTUuNS45NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMzAuMjksNTYuM2gtMy40N2wtNS4xOC0xMS45MmgtMTUuOTlsLTUuMiwxMS45MmgtMy40N2wxNS41Mi0zNS41NWgyLjMxbDE1LjQ3LDM1LjU1Wk0zMDcuMDMsNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTM1MS4yNSw1Ni41NGMtMS44NywwLTMuNjMtLjItNS4yMi0uNTktMS42MS0uNC0zLjE0LTEuMDItNC41NC0xLjgzLTEuMzktLjgxLTIuNzItMS44NC0zLjk3LTMuMDVsLS44Ny0uODUsMi40Mi0yLjEuNzQuNzZjLjc5LjgyLDEuNjIsMS41MywyLjQ2LDIuMTEuODMuNTgsMS43MywxLjA2LDIuNjcsMS40My45My4zNywxLjk0LjY1LDIuOTguODMsMS4wNS4xOCwyLjIuMjcsMy4zOC4yNywzLjA4LDAsNS41Mi0uNTcsNy4yNS0xLjY5LDEuNi0xLjA0LDIuMzgtMi41NiwyLjM4LTQuNjUsMC0xLjQtLjMxLTIuNTItLjk0LTMuMzMtLjY1LS44NS0xLjcxLTEuNTctMy4xNi0yLjEzLTEuNTctLjYxLTMuNjMtMS4xNy02LjEyLTEuNjYtMi40OC0uNDctNC42My0xLjAyLTYuMzgtMS42MS0xLjkxLS42NC0zLjQtMS41Ny00LjQxLTIuNzctMS4wNi0xLjI1LTEuNi0yLjk2LTEuNi01LjA3cy41NS00LjA0LDEuNjQtNS41NWMxLjA4LTEuNSwyLjYxLTIuNjUsNC41Ni0zLjQyLDEuODgtLjczLDQuMDgtMS4xMSw2LjU2LTEuMTEsMS40OSwwLDIuODcuMTQsNC4xMi40MiwxLjI4LjI5LDIuNDcuNzYsMy41NiwxLjM5LDEuMDguNjMsMi4xLDEuNDgsMy4wNSwyLjU0bC42OS43Ni0yLjEzLDIuMy0uODItLjg5Yy0uNjEtLjY2LTEuMjItMS4yMi0xLjgyLTEuNjUtLjU5LS40My0xLjIyLS43Ny0xLjg2LTEuMDEtLjY1LS4yNS0xLjM2LS40NC0yLjExLS41NS0uNzgtLjEyLTEuNjQtLjE4LTIuNTgtLjE4LTMuNDksMC02LjAyLjY0LTcuNTEsMS45Mi0xLjQ2LDEuMjQtMi4xNiwyLjg2LTIuMTYsNC45NSwwLDEuMzMuMjgsMi4zNy44NCwzLjA5LjU4Ljc1LDEuNTYsMS4zNywyLjg5LDEuODQsMS41LjUzLDMuNDcsMS4wNCw1Ljg4LDEuNTMsMi41MS41MSw0LjcyLDEuMSw2LjU4LDEuNzUsMS45OS43MSwzLjU2LDEuNjksNC42NiwyLjk0LDEuMTcsMS4zMiwxLjc2LDMuMTIsMS43Niw1LjM2LDAsMS41Mi0uMzEsMi45LS45Miw0LjEtLjYxLDEuMjEtMS41MiwyLjIzLTIuNjgsMy4wNC0xLjEyLjc4LTIuNDksMS4zOC00LjA2LDEuNzgtMS41My40LTMuMjguNi01LjE4LjZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDA0LjE1LDU2LjNoLTMuNDdsLTUuMTgtMTEuOTJoLTE1Ljk4bC01LjIsMTEuOTJoLTMuNDdsMTUuNTItMzUuNTVoMi4zMWwxNS40NywzNS41NVpNMzgwLjksNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8ZyBjbGFzcz0ic3Q5Ij4KICAgICAgICA8cmVjdCBjbGFzcz0ic3Q4IiB4PSIyMS42NSIgd2lkdGg9IjUyLjExIiBoZWlnaHQ9IjU2LjQ3Ii8+CiAgICAgIDwvZz4KICAgICAgPGcgY2xhc3M9InN0NSI+CiAgICAgICAgPHJlY3QgY2xhc3M9InN0NCIgeD0iMTIuMzciIHk9IjM1LjE4IiB3aWR0aD0iNjEuNCIgaGVpZ2h0PSIzMC4wOSIvPgogICAgICA8L2c+CiAgICAgIDxnIGNsYXNzPSJzdDciPgogICAgICAgIDxyZWN0IGNsYXNzPSJzdDAiIHk9IjguNzkiIHdpZHRoPSIzNi44OCIgaGVpZ2h0PSI1Ni40NyIvPgogICAgICA8L2c+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjAuOTggOS4xOCAzMy45OSAxOS4yNiAzNi44OCAxNy41OSAyMS42NSA4LjggMjAuOTggOS4xOCIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QzIiBwb2ludHM9IjU4LjUxIDQ3LjY4IDU4LjUxIDQ0LjE1IDczLjc0IDU1LjU5IDczLjc0IDU2LjQ4IDU4LjUxIDQ3LjY4Ii8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjIyIDY1LjI3IDE2LjA0IDY1LjI3IDE4LjY2IDQ3LjY3IDE1LjIyIDQ3LjcgMTUuMjIgNjUuMjciLz4KICA8L2c+Cjwvc3ZnPg==" alt="Metacasa Logo" style="width:240px;height:auto">
+      </div>
     </div>
   </div>
 </header>
 
-<!-- QUICK REFERENCE -->
-<div class="section-dark" id="quickref">
+<!-- QUICK REF -->
+<div class="section-purple">
   <div class="section-inner">
-    <div class="section-label">Overview</div>
+    <p class="subtitle">Overview</p>
     <h2>Quick Reference</h2>
-    <div class="quick-ref">
-      <div class="qr-card">
-        <div class="label">Primary Color</div>
-        <div class="value"><code>#7A00DF</code> Metacasa Purple</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Secondary</div>
-        <div class="value"><code>#4F23CC</code> Deep Purple</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Accent</div>
-        <div class="value"><code>#FF6900</code> Vivid Orange</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Tech Accent</div>
-        <div class="value"><code>#06B6D4</code> Cyan</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Heading Font</div>
-        <div class="value">Space Grotesk (proposed)</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Body Font</div>
-        <div class="value">Inter</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Voice</div>
-        <div class="value">Agentic, Confident, Data-driven</div>
-      </div>
-      <div class="qr-card">
-        <div class="label">Positioning</div>
-        <div class="value">Sistema Operativo Agentic AI All-In-One</div>
-      </div>
+
+    <div class="metric-grid">
+      <div class="metric-card"><div class="metric-value">+500k</div><div class="metric-label">ARR</div></div>
+      <div class="metric-card"><div class="metric-value">1.000+</div><div class="metric-label">Clienti Attivi</div></div>
+      <div class="metric-card"><div class="metric-value">4x</div><div class="metric-label">YoY Growth</div></div>
+      <div class="metric-card"><div class="metric-value">90%</div><div class="metric-label">Gross Margin</div></div>
+      <div class="metric-card"><div class="metric-value">+94%</div><div class="metric-label">Click Annunci</div></div>
+      <div class="metric-card"><div class="metric-value">+42%</div><div class="metric-label">Telefonate</div></div>
     </div>
 
-    <div class="metrics" style="margin-top: 2rem;">
-      <div class="metric"><div class="metric-value">+500k</div><div class="metric-label">ARR</div></div>
-      <div class="metric"><div class="metric-value">+1.000</div><div class="metric-label">Clienti Attivi</div></div>
-      <div class="metric"><div class="metric-value">4x</div><div class="metric-label">YoY Growth</div></div>
-      <div class="metric"><div class="metric-value">90%</div><div class="metric-label">Gross Margin</div></div>
-      <div class="metric"><div class="metric-value">+94%</div><div class="metric-label">Click Annunci</div></div>
-      <div class="metric"><div class="metric-value">+42%</div><div class="metric-label">Telefonate</div></div>
-    </div>
+    <table style="margin-top:2.5rem">
+      <thead><tr><th>Elemento</th><th>Valore</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primary Color</strong></td><td><code style="background:rgba(122,0,223,0.15);padding:2px 8px;border-radius:4px;color:#c084fc">#7A00DF</code> Metacasa Purple</td></tr>
+        <tr><td><strong>Heading Font</strong></td><td>Lato</td></tr>
+        <tr><td><strong>Accent Font</strong></td><td>Montserrat</td></tr>
+        <tr><td><strong>Body / UI Font</strong></td><td>Lato + Inter</td></tr>
+        <tr><td><strong>Voice</strong></td><td>Agentic, Confident, Data-driven</td></tr>
+        <tr><td><strong>Positioning</strong></td><td>Sistema Operativo Agentic AI All-In-One</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
 <!-- COLORS -->
 <section class="section" id="colors">
-  <div class="section-label">01 — Visual Identity</div>
-  <h2>Color Palette</h2>
-  <p class="section-desc">La palette purple distingue Metacasa nel panorama prop-tech. Il gradient Purple → Cyan segnala dove l'AI e' attiva.</p>
+  <div class="container">
+    <p class="subtitle"><span class="section-num">01</span> Visual Identity</p>
+    <h2>Color Palette</h2>
+    <p style="color:var(--text-faint);margin-bottom:2rem">La palette purple distingue Metacasa nel panorama prop-tech.</p>
 
-  <h3>Primary Colors</h3>
-  <div class="color-grid">
-    <div class="swatch">
-      <div class="swatch-color" style="background: #7A00DF;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Metacasa Purple</div>
-        <div class="swatch-hex">#7A00DF</div>
-        <div class="swatch-usage">Brand primary, hero, key accents</div>
-      </div>
+    <h3>Primary Colors</h3>
+    <div class="grid-3">
+      <div class="swatch-card" onclick="copyHex('#7A00DF')"><div class="swatch-color" style="background:#7A00DF"></div><div class="swatch-info"><div class="swatch-name">Metacasa Purple</div><div class="swatch-hex">#7A00DF</div><div class="swatch-use">Brand primary, hero, key accents</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#4F23CC')"><div class="swatch-color" style="background:#4F23CC"></div><div class="swatch-info"><div class="swatch-name">Deep Purple</div><div class="swatch-hex">#4F23CC</div><div class="swatch-use">Buttons, CTAs, interactive</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#6D28D9')"><div class="swatch-color" style="background:#6D28D9"></div><div class="swatch-info"><div class="swatch-name">Violet 700</div><div class="swatch-hex">#6D28D9</div><div class="swatch-use">CTA evoluto, miglior contrast</div></div></div>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #4F23CC;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Deep Purple</div>
-        <div class="swatch-hex">#4F23CC</div>
-        <div class="swatch-usage">Buttons, CTAs, interactive</div>
-      </div>
+
+    <h3 style="margin-top:2.5rem">Secondary / Accent</h3>
+    <div class="grid-3">
+      <div class="swatch-card" onclick="copyHex('#F97316')"><div class="swatch-color" style="background:#F97316"></div><div class="swatch-info"><div class="swatch-name">Orange 500</div><div class="swatch-hex">#F97316</div><div class="swatch-use">Highlights, urgenza, energy</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#0693E3')"><div class="swatch-color" style="background:#0693E3"></div><div class="swatch-info"><div class="swatch-name">Vivid Cyan Blue</div><div class="swatch-hex">#0693E3</div><div class="swatch-use">Tech accent, info, links (site)</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#00D084')"><div class="swatch-color" style="background:#00D084"></div><div class="swatch-info"><div class="swatch-name">Vivid Green</div><div class="swatch-hex">#00D084</div><div class="swatch-use">Success, positivo, conferme</div></div></div>
     </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #6D28D9;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Violet 700 (proposed)</div>
-        <div class="swatch-hex">#6D28D9</div>
-        <div class="swatch-usage">CTA evoluto, miglior contrast</div>
-      </div>
+
+    <h3 style="margin-top:2.5rem">AI Gradient</h3>
+    <div class="gradient-bar" onclick="copyHex('linear-gradient(135deg,#7A00DF,#06B6D4)')">linear-gradient(135deg, #7A00DF, #06B6D4) — click to copy</div>
+
+    <h3 style="margin-top:2.5rem">Neutral Palette</h3>
+    <div class="grid-5">
+      <div class="swatch-card" onclick="copyHex('#000000')"><div class="swatch-color" style="background:#000"></div><div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#000000</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#212121')"><div class="swatch-color" style="background:#212121"></div><div class="swatch-info"><div class="swatch-name">Site Dark</div><div class="swatch-hex">#212121</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#313131')"><div class="swatch-color" style="background:#313131"></div><div class="swatch-info"><div class="swatch-name">Dark Gray</div><div class="swatch-hex">#313131</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#ABB8C3')"><div class="swatch-color" style="background:#ABB8C3"></div><div class="swatch-info"><div class="swatch-name">Medium Gray</div><div class="swatch-hex">#ABB8C3</div></div></div>
+      <div class="swatch-card" onclick="copyHex('#EEEEEE')"><div class="swatch-color" style="background:#eee;border-bottom:1px solid #ddd"></div><div class="swatch-info"><div class="swatch-name">Light Gray</div><div class="swatch-hex">#EEEEEE</div></div></div>
     </div>
+
+    <h3 style="margin-top:2.5rem">Dark Mode (Site Dark Sections)</h3>
+    <div class="gradient-bar" style="background:linear-gradient(180deg, #151520 0%, #1c1535 50%, #151520 100%);height:80px" onclick="copyHex('#151520 → #1c1535')">Dark section gradient — from metacasa.ai</div>
   </div>
-
-  <h3>Secondary / Accent</h3>
-  <div class="color-grid">
-    <div class="swatch">
-      <div class="swatch-color" style="background: #F97316;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Orange 500</div>
-        <div class="swatch-hex">#F97316</div>
-        <div class="swatch-usage">Highlights, urgenza, energy</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #06B6D4;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Cyan 500</div>
-        <div class="swatch-hex">#06B6D4</div>
-        <div class="swatch-usage">Tech accent, info, links</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background: #00D084;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Vivid Green</div>
-        <div class="swatch-hex">#00D084</div>
-        <div class="swatch-usage">Success, positivo, conferme</div>
-      </div>
-    </div>
-  </div>
-
-  <h3>AI Gradient</h3>
-  <div class="gradient-bar" style="background: linear-gradient(135deg, #7A00DF, #06B6D4);"></div>
-  <p style="font-size: 0.85rem; color: var(--gray-400);">Purple → Cyan — usare ovunque l'AI e' protagonista (hero, loading, indicatori AI attiva)</p>
-
-  <h3>Neutral Palette</h3>
-  <div class="color-grid">
-    <div class="swatch"><div class="swatch-color" style="background: #000000;"></div><div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#000000</div><div class="swatch-usage">Strong headings</div></div></div>
-    <div class="swatch"><div class="swatch-color" style="background: #313131;"></div><div class="swatch-info"><div class="swatch-name">Dark Gray</div><div class="swatch-hex">#313131</div><div class="swatch-usage">Body text</div></div></div>
-    <div class="swatch"><div class="swatch-color" style="background: #ABB8C3;"></div><div class="swatch-info"><div class="swatch-name">Medium Gray</div><div class="swatch-hex">#ABB8C3</div><div class="swatch-usage">Muted, placeholder</div></div></div>
-    <div class="swatch"><div class="swatch-color" style="background: #EEEEEE;"></div><div class="swatch-info"><div class="swatch-name">Light Gray</div><div class="swatch-hex">#EEEEEE</div><div class="swatch-usage">Borders, dividers</div></div></div>
-    <div class="swatch"><div class="swatch-color" style="background: #FAFAFA; border: 1px solid #eee;"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-usage">Backgrounds</div></div></div>
-  </div>
-
-  <h3>Dark Mode</h3>
-  <div class="gradient-bar" style="background: linear-gradient(135deg, #0F0F1A, #1a0a2e, #0F0F1A); border: 1px solid rgba(122,0,223,0.2);"></div>
-  <p style="font-size: 0.85rem; color: var(--gray-400);">Background dark con tinta purple — <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:0.8rem;">#0F0F1A</code></p>
 </section>
 
 <!-- TYPOGRAPHY -->
-<section class="section-gray" id="typography">
-  <div class="section-inner">
-    <div class="section-label">02 — Typography</div>
+<section class="section" id="typography" style="background:var(--bg-alt)">
+  <div class="container">
+    <p class="subtitle"><span class="section-num">02</span> Typography</p>
     <h2>Type System</h2>
-    <p class="section-desc">Due famiglie: Space Grotesk per headings (tech-native, distinctivo), Inter per body e UI (versatile, leggibile).</p>
+    <p style="color:var(--text-faint);margin-bottom:2rem">Tre famiglie dal sito live: Lato (headings + body), Montserrat (accent, labels, UI), Inter (prodotto, form, tabelle).</p>
 
-    <div class="type-sample">
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Space Grotesk'; font-size: 2.625rem; font-weight: 800; line-height:1.15;">H1 Hero — Space Grotesk</div>
-        <div class="type-meta">42px / 800</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Space Grotesk'; font-size: 2.25rem; font-weight: 700; line-height:1.2;">H2 Section Title</div>
-        <div class="type-meta">36px / 700</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Space Grotesk'; font-size: 1.5rem; font-weight: 600; line-height:1.3;">H3 Subsection</div>
-        <div class="type-meta">24px / 600</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Inter'; font-size: 1.25rem; font-weight: 400; line-height:1.5;">Body Large — Inter regular, per intro e paragrafi importanti</div>
-        <div class="type-meta">20px / 400</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Inter'; font-size: 1rem; font-weight: 400; line-height:1.5;">Body — Il testo standard per paragrafi, descrizioni, contenuti.</div>
-        <div class="type-meta">16px / 400</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview" style="font-family:'Inter'; font-size: 0.8125rem; font-weight: 400; color: var(--gray-400);">Small / Caption — metadata, didascalie, note</div>
-        <div class="type-meta">13px / 400</div>
-      </div>
-      <div class="type-row">
-        <div class="type-preview">
-          <span style="font-family:'Inter'; font-size: 1.125rem; font-weight: 600; background: var(--purple); color: white; padding: 0.5rem 1.5rem; border-radius: 999px; display: inline-block;">Attiva il tuo Agente</span>
+    <div class="grid-2" style="margin-bottom:2.5rem">
+      <div class="font-card">
+        <h4 style="color:var(--purple)">Lato — Headings (sito attuale)</h4>
+        <div class="chars" style="font-family:Lato;font-weight:900">Aa Bb Cc 123</div>
+        <div class="weights">
+          <span class="weight-sample" style="font-family:Lato;font-weight:300">Light 300</span>
+          <span class="weight-sample" style="font-family:Lato;font-weight:400">Regular 400</span>
+          <span class="weight-sample" style="font-family:Lato;font-weight:700">Bold 700</span>
+          <span class="weight-sample" style="font-family:Lato;font-weight:900">Black 900</span>
         </div>
-        <div class="type-meta">18px / 600 / pill</div>
+        <div class="dl-group">
+          <a class="dl-btn" href="https://fonts.google.com/specimen/Lato" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Google Fonts</a>
+        </div>
       </div>
+      <div class="font-card">
+        <h4>Montserrat — Accent / Labels</h4>
+        <div class="chars" style="font-family:Montserrat;font-weight:800">Aa Bb Cc 123</div>
+        <div class="weights">
+          <span class="weight-sample" style="font-family:Montserrat;font-weight:400">Regular 400</span>
+          <span class="weight-sample" style="font-family:Montserrat;font-weight:600">SemiBold 600</span>
+          <span class="weight-sample" style="font-family:Montserrat;font-weight:700">Bold 700</span>
+          <span class="weight-sample" style="font-family:Montserrat;font-weight:900">Black 900</span>
+        </div>
+        <div class="dl-group">
+          <a class="dl-btn" href="https://fonts.google.com/specimen/Montserrat" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Google Fonts</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:2.5rem">
+      <div class="font-card">
+        <h4>Inter — Prodotto / UI / Tabelle</h4>
+        <div class="chars" style="font-family:Inter;font-weight:700">Aa Bb Cc 123</div>
+        <div class="weights">
+          <span class="weight-sample" style="font-family:Inter;font-weight:400">Regular 400</span>
+          <span class="weight-sample" style="font-family:Inter;font-weight:500">Medium 500</span>
+          <span class="weight-sample" style="font-family:Inter;font-weight:600">SemiBold 600</span>
+          <span class="weight-sample" style="font-family:Inter;font-weight:700">Bold 700</span>
+        </div>
+        <div class="dl-group">
+          <a class="dl-btn" href="https://fonts.google.com/specimen/Inter" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Google Fonts</a>
+        </div>
+      </div>
+      <div class="font-card">
+        <h4 style="color:var(--purple)">JetBrains Mono — Code / KPI</h4>
+        <div class="chars" style="font-family:'JetBrains Mono';font-weight:500">01 23 #7A00DF</div>
+        <div class="weights">
+          <span class="weight-sample" style="font-family:'JetBrains Mono';font-weight:400">Regular 400</span>
+          <span class="weight-sample" style="font-family:'JetBrains Mono';font-weight:500">Medium 500</span>
+          <span class="weight-sample" style="font-family:'JetBrains Mono';font-weight:600">SemiBold 600</span>
+        </div>
+        <div class="dl-group">
+          <a class="dl-btn" href="https://fonts.google.com/specimen/JetBrains+Mono" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Google Fonts</a>
+        </div>
+      </div>
+    </div>
+
+    <h3>Type Scale (dal sito live)</h3>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:0.5rem 1.5rem;transition:all .5s">
+      <div class="type-row"><div class="type-meta"><div class="type-label">H1 Hero</div><div class="type-specs">50px / 700 / Lato</div></div><div class="type-preview" style="font-family:Lato;font-size:2.5rem;font-weight:700;line-height:1.15">La piattaforma AI</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-label">H2 Section</div><div class="type-specs">42px / 900 / Lato</div></div><div class="type-preview" style="font-family:Lato;font-size:2rem;font-weight:900;line-height:1.15">Una soluzione per tutti</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-label">H3 Card Title</div><div class="type-specs">20px / 700 / Montserrat</div></div><div class="type-preview" style="font-family:Montserrat;font-size:1.25rem;font-weight:700">Agenzie immobiliari</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-label">Body</div><div class="type-specs">16px / 400 / Lato</div></div><div class="type-preview" style="font-family:Lato;font-size:1rem">Strumenti avanzati di progettazione e preventivi per la gestione completa.</div></div>
+      <div class="type-row"><div class="type-meta"><div class="type-label">Label</div><div class="type-specs">13px / 700 / Montserrat / uppercase</div></div><div class="type-preview" style="font-family:Montserrat;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple)">Trusted By</div></div>
+      <div class="type-row" style="border:none"><div class="type-meta"><div class="type-label">Button</div><div class="type-specs">16px / 600 / Lato / pill</div></div><div class="type-preview"><span style="font-family:Lato;font-size:16px;font-weight:600;background:var(--purple);color:white;padding:12px 28px;border-radius:9999px;display:inline-block">Inizia ora →</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- LOGO -->
-<section class="section">
-  <div class="section-label">03 — Logo</div>
-  <h2>Logo System</h2>
+<section class="section" id="logo">
+  <div class="container">
+    <p class="subtitle"><span class="section-num">03</span> Logo</p>
+    <h2>Logo Metacasa</h2>
 
-  <div class="cards" style="margin-top:1.5rem;">
-    <div class="card">
-      <h4 style="color: var(--purple);">Primary — Light Background</h4>
-      <div style="background:#FAFAFA;border-radius:8px;padding:1.5rem;margin:0.75rem 0;display:flex;align-items:center;justify-content:center;">
-        <img src="logo-metacasa.svg" alt="Metacasa Logo" style="height:50px;">
+    <div class="grid-3" style="margin-top:2rem">
+      <div>
+        <div class="logo-card logo-card--light">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDA0LjE1IDY1LjI3Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50Mik7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxZDFkMWI7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIG9wYWNpdHk6IC4xNTsKICAgICAgfQoKICAgICAgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogIzEzMTEwYzsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KCiAgICAgIC5zdDQgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KCiAgICAgIC5zdDUgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgb3BhY2l0eTogLjE7CiAgICAgIH0KCiAgICAgIC5zdDYgewogICAgICAgIGNsaXAtcnVsZTogZXZlbm9kZDsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuc3Q3IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtMik7CiAgICAgIH0KCiAgICAgIC5zdDggewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLnN0OSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjU4LjUzIDMwLjA5IDU4LjUzIDQ3LjY4IDY0LjIyIDU0LjUxIDczLjc2IDU2LjQ3IDczLjc2IDQ1LjQ3IDczLjc2IDQyLjU5IDczLjc2IDIxLjI5IDU1LjMyIDEwLjY1IDM2Ljg4IDAgMjEuNjUgOC44IDM2Ljg4IDE3LjU5IDU4LjUzIDMwLjA5Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItNzI3LjAzIiB5MT0iLTc5MC45NCIgeDI9Ii03NzkuMiIgeTI9Ii04MzguNTYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzQ3MmI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ3IiBzdG9wLWNvbG9yPSIjMmZiMTk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2JjY2YwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDYiIHBvaW50cz0iMTUuMjMgNjUuMjcgNTguNTMgNjUuMjcgNzMuNzYgNTYuNDcgNTguNTMgNDcuNjggMTUuMjMgNDcuNjggMTIuMzcgNTUuOTkgMTUuMjMgNjUuMjciLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDEiIHgxPSItNzkzLjUzIiB5MT0iLTc5NC43NiIgeDI9Ii03MjkuMjUiIHkyPSItNzk0Ljc2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMy4wMSA4NDQuOTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5NGM5NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40OSIgc3RvcC1jb2xvcj0iI2VhNGU4ZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmJjMjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjE1LjIzIDQ3LjY4IDE1LjIzIDMwLjA5IDM2Ljg4IDE3LjU5IDIxLjY1IDguNzkgMTguNDQgMTAuNjUgMCAyMS4yOSAwIDQyLjU5IDAgNDYuNjIgMCA1Ni40NyAxNS4yMyA2NS4yNyAxNS4yMyA0Ny42OCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii03ODQuNTciIHkxPSItODM4LjY5IiB4Mj0iLTc4NC41NyIgeTI9Ii03ODYuODciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWY4NGM3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjN2M1ZmE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NjNjRhMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGc+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjEzNy45IDU2LjMgMTM0LjcyIDU2LjMgMTM0LjcyIDI3Ljk3IDEyMS42OSA0OS43MyAxMTkuNjcgNDkuNzMgMTA2LjY0IDI3Ljk3IDEwNi42NCA1Ni4zIDEwMy40NyA1Ni4zIDEwMy40NyAyMC43NSAxMDQuNCAyMC43NSAxMDQuOTIgMjAuNzUgMTA1Ljk3IDIwLjc1IDEyMC42OCA0NS4zMSAxMzUuMzkgMjAuNzUgMTM2LjQ0IDIwLjc1IDEzNi45NSAyMC43NSAxMzcuOSAyMC43NSAxMzcuOSA1Ni4zIi8+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjE3Ni4wNSA1Ni4zIDE1MS45NSA1Ni4zIDE1MS45NSAyMC43NSAxNzUuNjMgMjAuNzUgMTc1LjYzIDIzLjkyIDE1NS4xMiAyMy45MiAxNTUuMTIgMzYuNTYgMTczLjA5IDM2LjU2IDE3My4wOSAzOS43NCAxNTUuMTIgMzkuNzQgMTU1LjEyIDUzLjEzIDE3Ni4wNSA1My4xMyAxNzYuMDUgNTYuMyIvPgogICAgPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIyMDAuMDMgNTYuMyAxOTYuODYgNTYuMyAxOTYuODYgMjMuOTIgMTg0LjA5IDIzLjkyIDE4NC4wOSAyMC43NSAyMTIuNzkgMjAuNzUgMjEyLjc5IDIzLjkyIDIwMC4wMyAyMy45MiAyMDAuMDMgNTYuMyIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTI1MS45Niw1Ni4zaC0zLjQ3bC01LjE4LTExLjkyaC0xNS45OGwtNS4yLDExLjkyaC0zLjQ3bDE1LjUyLTM1LjU1aDIuMzFsMTUuNDcsMzUuNTVaTTIyOC43MSw0MS4yMWgxMy4yMmwtNi42LTE1LjE4LTYuNjIsMTUuMThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjc1Ljg4LDU2LjU0Yy0yLjQzLDAtNC42OS0uNTQtNi43NC0xLjYxLTIuMDEtMS4wNS0zLjc5LTIuNDctNS4yNi00LjIxLTEuNDctMS43NC0yLjYyLTMuNzEtMy40MS01Ljg4LS43OS0yLjE2LTEuMTktNC4zOS0xLjE5LTYuNnMuMzgtNC4yNSwxLjEyLTYuMzFjLjc0LTIuMDcsMS44NC0zLjk4LDMuMjctNS42OSwxLjQ0LTEuNzIsMy4yMi0zLjEyLDUuMjktNC4xNiwyLjA5LTEuMDQsNC41LTEuNTcsNy4xNy0xLjU3LDMuMTgsMCw1LjkzLjc1LDguMTcsMi4yMiwyLjIzLDEuNDcsMy45MSwzLjM4LDUsNS42OWwuNTQsMS4xNS0zLC45NS0uNDMtLjgzYy0uNzctMS40Ny0xLjcyLTIuNjYtMi44NC0zLjUzLTEuMTQtLjg4LTIuMzYtMS41Mi0zLjY1LTEuOS0xLjMxLS4zOS0yLjY1LS41OS0zLjk4LS41OS0yLjEzLDAtNC4wNC40Mi01LjY5LDEuMjQtMS42Ni44My0zLjA5LDEuOTYtNC4yMywzLjM3LTEuMTYsMS40Mi0yLjA1LDMuMDItMi42NSw0Ljc1LS42LDEuNzQtLjksMy41My0uOSw1LjM0LDAsMS45OC4zNSwzLjg5LDEuMDUsNS42Ny43LDEuNzksMS42OSwzLjQxLDIuOTQsNC44LDEuMjUsMS4zOSwyLjcxLDIuNSw0LjM2LDMuMzEsMi43OCwxLjM3LDYuMDUsMS42MSw5LjQzLjUsMS40LS40NiwyLjc0LTEuMTcsMy45OS0yLjEyLDEuMjEtLjkzLDIuMjEtMi4xNCwyLjk3LTMuNjJsLjQxLS43OSwzLjAzLjgtLjU0LDEuMmMtLjgyLDEuODEtMi4wNCwzLjM3LTMuNiw0LjYzLTEuNTMsMS4yMy0zLjI1LDIuMTgtNS4xLDIuODEtMS44NC42My0zLjY5Ljk1LTUuNS45NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMzAuMjksNTYuM2gtMy40N2wtNS4xOC0xMS45MmgtMTUuOTlsLTUuMiwxMS45MmgtMy40N2wxNS41Mi0zNS41NWgyLjMxbDE1LjQ3LDM1LjU1Wk0zMDcuMDMsNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTM1MS4yNSw1Ni41NGMtMS44NywwLTMuNjMtLjItNS4yMi0uNTktMS42MS0uNC0zLjE0LTEuMDItNC41NC0xLjgzLTEuMzktLjgxLTIuNzItMS44NC0zLjk3LTMuMDVsLS44Ny0uODUsMi40Mi0yLjEuNzQuNzZjLjc5LjgyLDEuNjIsMS41MywyLjQ2LDIuMTEuODMuNTgsMS43MywxLjA2LDIuNjcsMS40My45My4zNywxLjk0LjY1LDIuOTguODMsMS4wNS4xOCwyLjIuMjcsMy4zOC4yNywzLjA4LDAsNS41Mi0uNTcsNy4yNS0xLjY5LDEuNi0xLjA0LDIuMzgtMi41NiwyLjM4LTQuNjUsMC0xLjQtLjMxLTIuNTItLjk0LTMuMzMtLjY1LS44NS0xLjcxLTEuNTctMy4xNi0yLjEzLTEuNTctLjYxLTMuNjMtMS4xNy02LjEyLTEuNjYtMi40OC0uNDctNC42My0xLjAyLTYuMzgtMS42MS0xLjkxLS42NC0zLjQtMS41Ny00LjQxLTIuNzctMS4wNi0xLjI1LTEuNi0yLjk2LTEuNi01LjA3cy41NS00LjA0LDEuNjQtNS41NWMxLjA4LTEuNSwyLjYxLTIuNjUsNC41Ni0zLjQyLDEuODgtLjczLDQuMDgtMS4xMSw2LjU2LTEuMTEsMS40OSwwLDIuODcuMTQsNC4xMi40MiwxLjI4LjI5LDIuNDcuNzYsMy41NiwxLjM5LDEuMDguNjMsMi4xLDEuNDgsMy4wNSwyLjU0bC42OS43Ni0yLjEzLDIuMy0uODItLjg5Yy0uNjEtLjY2LTEuMjItMS4yMi0xLjgyLTEuNjUtLjU5LS40My0xLjIyLS43Ny0xLjg2LTEuMDEtLjY1LS4yNS0xLjM2LS40NC0yLjExLS41NS0uNzgtLjEyLTEuNjQtLjE4LTIuNTgtLjE4LTMuNDksMC02LjAyLjY0LTcuNTEsMS45Mi0xLjQ2LDEuMjQtMi4xNiwyLjg2LTIuMTYsNC45NSwwLDEuMzMuMjgsMi4zNy44NCwzLjA5LjU4Ljc1LDEuNTYsMS4zNywyLjg5LDEuODQsMS41LjUzLDMuNDcsMS4wNCw1Ljg4LDEuNTMsMi41MS41MSw0LjcyLDEuMSw2LjU4LDEuNzUsMS45OS43MSwzLjU2LDEuNjksNC42NiwyLjk0LDEuMTcsMS4zMiwxLjc2LDMuMTIsMS43Niw1LjM2LDAsMS41Mi0uMzEsMi45LS45Miw0LjEtLjYxLDEuMjEtMS41MiwyLjIzLTIuNjgsMy4wNC0xLjEyLjc4LTIuNDksMS4zOC00LjA2LDEuNzgtMS41My40LTMuMjguNi01LjE4LjZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDA0LjE1LDU2LjNoLTMuNDdsLTUuMTgtMTEuOTJoLTE1Ljk4bC01LjIsMTEuOTJoLTMuNDdsMTUuNTItMzUuNTVoMi4zMWwxNS40NywzNS41NVpNMzgwLjksNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8ZyBjbGFzcz0ic3Q5Ij4KICAgICAgICA8cmVjdCBjbGFzcz0ic3Q4IiB4PSIyMS42NSIgd2lkdGg9IjUyLjExIiBoZWlnaHQ9IjU2LjQ3Ii8+CiAgICAgIDwvZz4KICAgICAgPGcgY2xhc3M9InN0NSI+CiAgICAgICAgPHJlY3QgY2xhc3M9InN0NCIgeD0iMTIuMzciIHk9IjM1LjE4IiB3aWR0aD0iNjEuNCIgaGVpZ2h0PSIzMC4wOSIvPgogICAgICA8L2c+CiAgICAgIDxnIGNsYXNzPSJzdDciPgogICAgICAgIDxyZWN0IGNsYXNzPSJzdDAiIHk9IjguNzkiIHdpZHRoPSIzNi44OCIgaGVpZ2h0PSI1Ni40NyIvPgogICAgICA8L2c+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjAuOTggOS4xOCAzMy45OSAxOS4yNiAzNi44OCAxNy41OSAyMS42NSA4LjggMjAuOTggOS4xOCIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QzIiBwb2ludHM9IjU4LjUxIDQ3LjY4IDU4LjUxIDQ0LjE1IDczLjc0IDU1LjU5IDczLjc0IDU2LjQ4IDU4LjUxIDQ3LjY4Ii8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjIyIDY1LjI3IDE2LjA0IDY1LjI3IDE4LjY2IDQ3LjY3IDE1LjIyIDQ3LjcgMTUuMjIgNjUuMjciLz4KICA8L2c+Cjwvc3ZnPg==" alt="Metacasa Logo" style="width:280px;height:auto">
+        </div>
+        <h4 style="margin-top:1rem">Light Background</h4>
+        <p style="font-size:14px;color:var(--text-faint)">Logo originale con mark rainbow e wordmark METACASA</p>
+        <div class="dl-group">
+          <a class="dl-btn" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDA0LjE1IDY1LjI3Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50Mik7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxZDFkMWI7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIG9wYWNpdHk6IC4xNTsKICAgICAgfQoKICAgICAgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogIzEzMTEwYzsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KCiAgICAgIC5zdDQgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KCiAgICAgIC5zdDUgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgb3BhY2l0eTogLjE7CiAgICAgIH0KCiAgICAgIC5zdDYgewogICAgICAgIGNsaXAtcnVsZTogZXZlbm9kZDsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuc3Q3IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtMik7CiAgICAgIH0KCiAgICAgIC5zdDggewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLnN0OSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjU4LjUzIDMwLjA5IDU4LjUzIDQ3LjY4IDY0LjIyIDU0LjUxIDczLjc2IDU2LjQ3IDczLjc2IDQ1LjQ3IDczLjc2IDQyLjU5IDczLjc2IDIxLjI5IDU1LjMyIDEwLjY1IDM2Ljg4IDAgMjEuNjUgOC44IDM2Ljg4IDE3LjU5IDU4LjUzIDMwLjA5Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItNzI3LjAzIiB5MT0iLTc5MC45NCIgeDI9Ii03NzkuMiIgeTI9Ii04MzguNTYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzQ3MmI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ3IiBzdG9wLWNvbG9yPSIjMmZiMTk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2JjY2YwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDYiIHBvaW50cz0iMTUuMjMgNjUuMjcgNTguNTMgNjUuMjcgNzMuNzYgNTYuNDcgNTguNTMgNDcuNjggMTUuMjMgNDcuNjggMTIuMzcgNTUuOTkgMTUuMjMgNjUuMjciLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDEiIHgxPSItNzkzLjUzIiB5MT0iLTc5NC43NiIgeDI9Ii03MjkuMjUiIHkyPSItNzk0Ljc2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMy4wMSA4NDQuOTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5NGM5NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40OSIgc3RvcC1jb2xvcj0iI2VhNGU4ZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmJjMjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjE1LjIzIDQ3LjY4IDE1LjIzIDMwLjA5IDM2Ljg4IDE3LjU5IDIxLjY1IDguNzkgMTguNDQgMTAuNjUgMCAyMS4yOSAwIDQyLjU5IDAgNDYuNjIgMCA1Ni40NyAxNS4yMyA2NS4yNyAxNS4yMyA0Ny42OCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii03ODQuNTciIHkxPSItODM4LjY5IiB4Mj0iLTc4NC41NyIgeTI9Ii03ODYuODciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWY4NGM3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjN2M1ZmE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NjNjRhMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGc+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjEzNy45IDU2LjMgMTM0LjcyIDU2LjMgMTM0LjcyIDI3Ljk3IDEyMS42OSA0OS43MyAxMTkuNjcgNDkuNzMgMTA2LjY0IDI3Ljk3IDEwNi42NCA1Ni4zIDEwMy40NyA1Ni4zIDEwMy40NyAyMC43NSAxMDQuNCAyMC43NSAxMDQuOTIgMjAuNzUgMTA1Ljk3IDIwLjc1IDEyMC42OCA0NS4zMSAxMzUuMzkgMjAuNzUgMTM2LjQ0IDIwLjc1IDEzNi45NSAyMC43NSAxMzcuOSAyMC43NSAxMzcuOSA1Ni4zIi8+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjE3Ni4wNSA1Ni4zIDE1MS45NSA1Ni4zIDE1MS45NSAyMC43NSAxNzUuNjMgMjAuNzUgMTc1LjYzIDIzLjkyIDE1NS4xMiAyMy45MiAxNTUuMTIgMzYuNTYgMTczLjA5IDM2LjU2IDE3My4wOSAzOS43NCAxNTUuMTIgMzkuNzQgMTU1LjEyIDUzLjEzIDE3Ni4wNSA1My4xMyAxNzYuMDUgNTYuMyIvPgogICAgPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIyMDAuMDMgNTYuMyAxOTYuODYgNTYuMyAxOTYuODYgMjMuOTIgMTg0LjA5IDIzLjkyIDE4NC4wOSAyMC43NSAyMTIuNzkgMjAuNzUgMjEyLjc5IDIzLjkyIDIwMC4wMyAyMy45MiAyMDAuMDMgNTYuMyIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTI1MS45Niw1Ni4zaC0zLjQ3bC01LjE4LTExLjkyaC0xNS45OGwtNS4yLDExLjkyaC0zLjQ3bDE1LjUyLTM1LjU1aDIuMzFsMTUuNDcsMzUuNTVaTTIyOC43MSw0MS4yMWgxMy4yMmwtNi42LTE1LjE4LTYuNjIsMTUuMThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjc1Ljg4LDU2LjU0Yy0yLjQzLDAtNC42OS0uNTQtNi43NC0xLjYxLTIuMDEtMS4wNS0zLjc5LTIuNDctNS4yNi00LjIxLTEuNDctMS43NC0yLjYyLTMuNzEtMy40MS01Ljg4LS43OS0yLjE2LTEuMTktNC4zOS0xLjE5LTYuNnMuMzgtNC4yNSwxLjEyLTYuMzFjLjc0LTIuMDcsMS44NC0zLjk4LDMuMjctNS42OSwxLjQ0LTEuNzIsMy4yMi0zLjEyLDUuMjktNC4xNiwyLjA5LTEuMDQsNC41LTEuNTcsNy4xNy0xLjU3LDMuMTgsMCw1LjkzLjc1LDguMTcsMi4yMiwyLjIzLDEuNDcsMy45MSwzLjM4LDUsNS42OWwuNTQsMS4xNS0zLC45NS0uNDMtLjgzYy0uNzctMS40Ny0xLjcyLTIuNjYtMi44NC0zLjUzLTEuMTQtLjg4LTIuMzYtMS41Mi0zLjY1LTEuOS0xLjMxLS4zOS0yLjY1LS41OS0zLjk4LS41OS0yLjEzLDAtNC4wNC40Mi01LjY5LDEuMjQtMS42Ni44My0zLjA5LDEuOTYtNC4yMywzLjM3LTEuMTYsMS40Mi0yLjA1LDMuMDItMi42NSw0Ljc1LS42LDEuNzQtLjksMy41My0uOSw1LjM0LDAsMS45OC4zNSwzLjg5LDEuMDUsNS42Ny43LDEuNzksMS42OSwzLjQxLDIuOTQsNC44LDEuMjUsMS4zOSwyLjcxLDIuNSw0LjM2LDMuMzEsMi43OCwxLjM3LDYuMDUsMS42MSw5LjQzLjUsMS40LS40NiwyLjc0LTEuMTcsMy45OS0yLjEyLDEuMjEtLjkzLDIuMjEtMi4xNCwyLjk3LTMuNjJsLjQxLS43OSwzLjAzLjgtLjU0LDEuMmMtLjgyLDEuODEtMi4wNCwzLjM3LTMuNiw0LjYzLTEuNTMsMS4yMy0zLjI1LDIuMTgtNS4xLDIuODEtMS44NC42My0zLjY5Ljk1LTUuNS45NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMzAuMjksNTYuM2gtMy40N2wtNS4xOC0xMS45MmgtMTUuOTlsLTUuMiwxMS45MmgtMy40N2wxNS41Mi0zNS41NWgyLjMxbDE1LjQ3LDM1LjU1Wk0zMDcuMDMsNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTM1MS4yNSw1Ni41NGMtMS44NywwLTMuNjMtLjItNS4yMi0uNTktMS42MS0uNC0zLjE0LTEuMDItNC41NC0xLjgzLTEuMzktLjgxLTIuNzItMS44NC0zLjk3LTMuMDVsLS44Ny0uODUsMi40Mi0yLjEuNzQuNzZjLjc5LjgyLDEuNjIsMS41MywyLjQ2LDIuMTEuODMuNTgsMS43MywxLjA2LDIuNjcsMS40My45My4zNywxLjk0LjY1LDIuOTguODMsMS4wNS4xOCwyLjIuMjcsMy4zOC4yNywzLjA4LDAsNS41Mi0uNTcsNy4yNS0xLjY5LDEuNi0xLjA0LDIuMzgtMi41NiwyLjM4LTQuNjUsMC0xLjQtLjMxLTIuNTItLjk0LTMuMzMtLjY1LS44NS0xLjcxLTEuNTctMy4xNi0yLjEzLTEuNTctLjYxLTMuNjMtMS4xNy02LjEyLTEuNjYtMi40OC0uNDctNC42My0xLjAyLTYuMzgtMS42MS0xLjkxLS42NC0zLjQtMS41Ny00LjQxLTIuNzctMS4wNi0xLjI1LTEuNi0yLjk2LTEuNi01LjA3cy41NS00LjA0LDEuNjQtNS41NWMxLjA4LTEuNSwyLjYxLTIuNjUsNC41Ni0zLjQyLDEuODgtLjczLDQuMDgtMS4xMSw2LjU2LTEuMTEsMS40OSwwLDIuODcuMTQsNC4xMi40MiwxLjI4LjI5LDIuNDcuNzYsMy41NiwxLjM5LDEuMDguNjMsMi4xLDEuNDgsMy4wNSwyLjU0bC42OS43Ni0yLjEzLDIuMy0uODItLjg5Yy0uNjEtLjY2LTEuMjItMS4yMi0xLjgyLTEuNjUtLjU5LS40My0xLjIyLS43Ny0xLjg2LTEuMDEtLjY1LS4yNS0xLjM2LS40NC0yLjExLS41NS0uNzgtLjEyLTEuNjQtLjE4LTIuNTgtLjE4LTMuNDksMC02LjAyLjY0LTcuNTEsMS45Mi0xLjQ2LDEuMjQtMi4xNiwyLjg2LTIuMTYsNC45NSwwLDEuMzMuMjgsMi4zNy44NCwzLjA5LjU4Ljc1LDEuNTYsMS4zNywyLjg5LDEuODQsMS41LjUzLDMuNDcsMS4wNCw1Ljg4LDEuNTMsMi41MS41MSw0LjcyLDEuMSw2LjU4LDEuNzUsMS45OS43MSwzLjU2LDEuNjksNC42NiwyLjk0LDEuMTcsMS4zMiwxLjc2LDMuMTIsMS43Niw1LjM2LDAsMS41Mi0uMzEsMi45LS45Miw0LjEtLjYxLDEuMjEtMS41MiwyLjIzLTIuNjgsMy4wNC0xLjEyLjc4LTIuNDksMS4zOC00LjA2LDEuNzgtMS41My40LTMuMjguNi01LjE4LjZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDA0LjE1LDU2LjNoLTMuNDdsLTUuMTgtMTEuOTJoLTE1Ljk4bC01LjIsMTEuOTJoLTMuNDdsMTUuNTItMzUuNTVoMi4zMWwxNS40NywzNS41NVpNMzgwLjksNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8ZyBjbGFzcz0ic3Q5Ij4KICAgICAgICA8cmVjdCBjbGFzcz0ic3Q4IiB4PSIyMS42NSIgd2lkdGg9IjUyLjExIiBoZWlnaHQ9IjU2LjQ3Ii8+CiAgICAgIDwvZz4KICAgICAgPGcgY2xhc3M9InN0NSI+CiAgICAgICAgPHJlY3QgY2xhc3M9InN0NCIgeD0iMTIuMzciIHk9IjM1LjE4IiB3aWR0aD0iNjEuNCIgaGVpZ2h0PSIzMC4wOSIvPgogICAgICA8L2c+CiAgICAgIDxnIGNsYXNzPSJzdDciPgogICAgICAgIDxyZWN0IGNsYXNzPSJzdDAiIHk9IjguNzkiIHdpZHRoPSIzNi44OCIgaGVpZ2h0PSI1Ni40NyIvPgogICAgICA8L2c+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjAuOTggOS4xOCAzMy45OSAxOS4yNiAzNi44OCAxNy41OSAyMS42NSA4LjggMjAuOTggOS4xOCIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QzIiBwb2ludHM9IjU4LjUxIDQ3LjY4IDU4LjUxIDQ0LjE1IDczLjc0IDU1LjU5IDczLjc0IDU2LjQ4IDU4LjUxIDQ3LjY4Ii8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjIyIDY1LjI3IDE2LjA0IDY1LjI3IDE4LjY2IDQ3LjY3IDE1LjIyIDQ3LjcgMTUuMjIgNjUuMjciLz4KICA8L2c+Cjwvc3ZnPg==" download="metacasa-logo.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>SVG</a>
+        </div>
       </div>
-      <p>Mark originale + wordmark: <strong>META</strong> dark + <strong>CASA</strong> in gradient AI purple→cyan.</p>
+      <div>
+        <div class="logo-card logo-card--dark" style="position:relative;overflow:hidden">
+          <svg style="width:280px;height:auto" viewBox="0 0 404.15 65.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <clipPath id="d-cp1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath>
+              <linearGradient id="d-lg1" x1="-727.03" y1="-790.94" x2="-779.2" y2="-838.56" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3472b8"/><stop offset=".47" stop-color="#2fb195"/><stop offset="1" stop-color="#bccf00"/></linearGradient>
+              <clipPath id="d-cp2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath>
+              <linearGradient id="d-lg2" x1="-793.53" y1="-794.76" x2="-729.25" y2="-794.76" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a94c97"/><stop offset=".49" stop-color="#ea4e8f"/><stop offset="1" stop-color="#fbbc21"/></linearGradient>
+              <clipPath id="d-cp3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath>
+              <linearGradient id="d-lg3" x1="-784.57" y1="-838.69" x2="-784.57" y2="-786.87" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1f84c7"/><stop offset=".45" stop-color="#7c5fa5"/><stop offset="1" stop-color="#cc64a3"/></linearGradient>
+            </defs>
+            <!-- Icon (colored) -->
+            <g><g clip-path="url(#d-cp1)"><rect fill="url(#d-lg1)" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#d-cp2)"><rect fill="url(#d-lg2)" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#d-cp3)"><rect fill="url(#d-lg3)" y="8.79" width="36.88" height="56.47"/></g><polygon fill="#13110c" fill-rule="evenodd" opacity=".15" points="20.98 9.18 33.99 19.26 36.88 17.59 21.65 8.8 20.98 9.18"/><polygon fill="#13110c" fill-rule="evenodd" opacity=".1" points="58.51 47.68 58.51 44.15 73.74 55.59 73.74 56.48 58.51 47.68"/><polygon fill="#13110c" fill-rule="evenodd" opacity=".15" points="15.22 65.27 16.04 65.27 18.66 47.67 15.22 47.7 15.22 65.27"/></g>
+            <!-- Wordmark (white) -->
+            <g fill="#ffffff">
+              <polygon points="137.9 56.3 134.72 56.3 134.72 27.97 121.69 49.73 119.67 49.73 106.64 27.97 106.64 56.3 103.47 56.3 103.47 20.75 104.4 20.75 104.92 20.75 105.97 20.75 120.68 45.31 135.39 20.75 136.44 20.75 136.95 20.75 137.9 20.75 137.9 56.3"/>
+              <polygon points="176.05 56.3 151.95 56.3 151.95 20.75 175.63 20.75 175.63 23.92 155.12 23.92 155.12 36.56 173.09 36.56 173.09 39.74 155.12 39.74 155.12 53.13 176.05 53.13 176.05 56.3"/>
+              <polygon points="200.03 56.3 196.86 56.3 196.86 23.92 184.09 23.92 184.09 20.75 212.79 20.75 212.79 23.92 200.03 23.92 200.03 56.3"/>
+              <path d="M251.96,56.3h-3.47l-5.18-11.92h-15.98l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM228.71,41.21h13.22l-6.6-15.18-6.62,15.18Z"/>
+              <path d="M275.88,56.54c-2.43,0-4.69-.54-6.74-1.61-2.01-1.05-3.79-2.47-5.26-4.21-1.47-1.74-2.62-3.71-3.41-5.88-.79-2.16-1.19-4.39-1.19-6.6s.38-4.25,1.12-6.31c.74-2.07,1.84-3.98,3.27-5.69,1.44-1.72,3.22-3.12,5.29-4.16,2.09-1.04,4.5-1.57,7.17-1.57,3.18,0,5.93.75,8.17,2.22,2.23,1.47,3.91,3.38,5,5.69l.54,1.15-3,.95-.43-.83c-.77-1.47-1.72-2.66-2.84-3.53-1.14-.88-2.36-1.52-3.65-1.9-1.31-.39-2.65-.59-3.98-.59-2.13,0-4.04.42-5.69,1.24-1.66.83-3.09,1.96-4.23,3.37-1.16,1.42-2.05,3.02-2.65,4.75-.6,1.74-.9,3.53-.9,5.34,0,1.98.35,3.89,1.05,5.67.7,1.79,1.69,3.41,2.94,4.8,1.25,1.39,2.71,2.5,4.36,3.31,2.78,1.37,6.05,1.61,9.43.5,1.4-.46,2.74-1.17,3.99-2.12,1.21-.93,2.21-2.14,2.97-3.62l.41-.79,3.03.8-.54,1.2c-.82,1.81-2.04,3.37-3.6,4.63-1.53,1.23-3.25,2.18-5.1,2.81-1.84.63-3.69.95-5.5.95Z"/>
+              <path d="M330.29,56.3h-3.47l-5.18-11.92h-15.99l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM307.03,41.21h13.22l-6.6-15.18-6.62,15.18Z"/>
+              <path d="M351.25,56.54c-1.87,0-3.63-.2-5.22-.59-1.61-.4-3.14-1.02-4.54-1.83-1.39-.81-2.72-1.84-3.97-3.05l-.87-.85,2.42-2.1.74.76c.79.82,1.62,1.53,2.46,2.11.83.58,1.73,1.06,2.67,1.43.93.37,1.94.65,2.98.83,1.05.18,2.2.27,3.38.27,3.08,0,5.52-.57,7.25-1.69,1.6-1.04,2.38-2.56,2.38-4.65,0-1.4-.31-2.52-.94-3.33-.65-.85-1.71-1.57-3.16-2.13-1.57-.61-3.63-1.17-6.12-1.66-2.48-.47-4.63-1.02-6.38-1.61-1.91-.64-3.4-1.57-4.41-2.77-1.06-1.25-1.6-2.96-1.6-5.07s.55-4.04,1.64-5.55c1.08-1.5,2.61-2.65,4.56-3.42,1.88-.73,4.08-1.11,6.56-1.11,1.49,0,2.87.14,4.12.42,1.28.29,2.47.76,3.56,1.39,1.08.63,2.1,1.48,3.05,2.54l.69.76-2.13,2.3-.82-.89c-.61-.66-1.22-1.22-1.82-1.65-.59-.43-1.22-.77-1.86-1.01-.65-.25-1.36-.44-2.11-.55-.78-.12-1.64-.18-2.58-.18-3.49,0-6.02.64-7.51,1.92-1.46,1.24-2.16,2.86-2.16,4.95,0,1.33.28,2.37.84,3.09.58.75,1.56,1.37,2.89,1.84,1.5.53,3.47,1.04,5.88,1.53,2.51.51,4.72,1.1,6.58,1.75,1.99.71,3.56,1.69,4.66,2.94,1.17,1.32,1.76,3.12,1.76,5.36,0,1.52-.31,2.9-.92,4.1-.61,1.21-1.52,2.23-2.68,3.04-1.12.78-2.49,1.38-4.06,1.78-1.53.4-3.28.6-5.18.6Z"/>
+              <path d="M404.15,56.3h-3.47l-5.18-11.92h-15.98l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM380.9,41.21h13.22l-6.6-15.18-6.62,15.18Z"/>
+            </g>
+          </svg>
+        </div>
+        <h4 style="margin-top:1rem">Dark Background</h4>
+        <p style="font-size:14px;color:var(--text-faint)">Icona colorata + wordmark bianco per dark mode, hero, footer</p>
+        <div class="dl-group">
+          <a class="dl-btn" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDA0LjE1IDY1LjI3Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50Mik7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxZDFkMWI7CiAgICAgIH0KCiAgICAgIC5zdDIgewogICAgICAgIG9wYWNpdHk6IC4xNTsKICAgICAgfQoKICAgICAgLnN0MiwgLnN0MyB7CiAgICAgICAgZmlsbDogIzEzMTEwYzsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KCiAgICAgIC5zdDQgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50MSk7CiAgICAgIH0KCiAgICAgIC5zdDUgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgb3BhY2l0eTogLjE7CiAgICAgIH0KCiAgICAgIC5zdDYgewogICAgICAgIGNsaXAtcnVsZTogZXZlbm9kZDsKICAgICAgICBmaWxsOiBub25lOwogICAgICB9CgogICAgICAuc3Q3IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtMik7CiAgICAgIH0KCiAgICAgIC5zdDggewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLnN0OSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjU4LjUzIDMwLjA5IDU4LjUzIDQ3LjY4IDY0LjIyIDU0LjUxIDczLjc2IDU2LjQ3IDczLjc2IDQ1LjQ3IDczLjc2IDQyLjU5IDczLjc2IDIxLjI5IDU1LjMyIDEwLjY1IDM2Ljg4IDAgMjEuNjUgOC44IDM2Ljg4IDE3LjU5IDU4LjUzIDMwLjA5Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSItNzI3LjAzIiB5MT0iLTc5MC45NCIgeDI9Ii03NzkuMiIgeTI9Ii04MzguNTYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzQ3MmI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ3IiBzdG9wLWNvbG9yPSIjMmZiMTk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2JjY2YwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDYiIHBvaW50cz0iMTUuMjMgNjUuMjcgNTguNTMgNjUuMjcgNzMuNzYgNTYuNDcgNTguNTMgNDcuNjggMTUuMjMgNDcuNjggMTIuMzcgNTUuOTkgMTUuMjMgNjUuMjciLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDEiIHgxPSItNzkzLjUzIiB5MT0iLTc5NC43NiIgeDI9Ii03MjkuMjUiIHkyPSItNzk0Ljc2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDgwMy4wMSA4NDQuOTkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E5NGM5NyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii40OSIgc3RvcC1jb2xvcj0iI2VhNGU4ZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmYmJjMjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3Q2IiBwb2ludHM9IjE1LjIzIDQ3LjY4IDE1LjIzIDMwLjA5IDM2Ljg4IDE3LjU5IDIxLjY1IDguNzkgMTguNDQgMTAuNjUgMCAyMS4yOSAwIDQyLjU5IDAgNDYuNjIgMCA1Ni40NyAxNS4yMyA2NS4yNyAxNS4yMyA0Ny42OCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50MiIgeDE9Ii03ODQuNTciIHkxPSItODM4LjY5IiB4Mj0iLTc4NC41NyIgeTI9Ii03ODYuODciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAzLjAxIDg0NC45OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWY4NGM3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjN2M1ZmE1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2NjNjRhMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGc+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjEzNy45IDU2LjMgMTM0LjcyIDU2LjMgMTM0LjcyIDI3Ljk3IDEyMS42OSA0OS43MyAxMTkuNjcgNDkuNzMgMTA2LjY0IDI3Ljk3IDEwNi42NCA1Ni4zIDEwMy40NyA1Ni4zIDEwMy40NyAyMC43NSAxMDQuNCAyMC43NSAxMDQuOTIgMjAuNzUgMTA1Ljk3IDIwLjc1IDEyMC42OCA0NS4zMSAxMzUuMzkgMjAuNzUgMTM2LjQ0IDIwLjc1IDEzNi45NSAyMC43NSAxMzcuOSAyMC43NSAxMzcuOSA1Ni4zIi8+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjE3Ni4wNSA1Ni4zIDE1MS45NSA1Ni4zIDE1MS45NSAyMC43NSAxNzUuNjMgMjAuNzUgMTc1LjYzIDIzLjkyIDE1NS4xMiAyMy45MiAxNTUuMTIgMzYuNTYgMTczLjA5IDM2LjU2IDE3My4wOSAzOS43NCAxNTUuMTIgMzkuNzQgMTU1LjEyIDUzLjEzIDE3Ni4wNSA1My4xMyAxNzYuMDUgNTYuMyIvPgogICAgPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIyMDAuMDMgNTYuMyAxOTYuODYgNTYuMyAxOTYuODYgMjMuOTIgMTg0LjA5IDIzLjkyIDE4NC4wOSAyMC43NSAyMTIuNzkgMjAuNzUgMjEyLjc5IDIzLjkyIDIwMC4wMyAyMy45MiAyMDAuMDMgNTYuMyIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTI1MS45Niw1Ni4zaC0zLjQ3bC01LjE4LTExLjkyaC0xNS45OGwtNS4yLDExLjkyaC0zLjQ3bDE1LjUyLTM1LjU1aDIuMzFsMTUuNDcsMzUuNTVaTTIyOC43MSw0MS4yMWgxMy4yMmwtNi42LTE1LjE4LTYuNjIsMTUuMThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjc1Ljg4LDU2LjU0Yy0yLjQzLDAtNC42OS0uNTQtNi43NC0xLjYxLTIuMDEtMS4wNS0zLjc5LTIuNDctNS4yNi00LjIxLTEuNDctMS43NC0yLjYyLTMuNzEtMy40MS01Ljg4LS43OS0yLjE2LTEuMTktNC4zOS0xLjE5LTYuNnMuMzgtNC4yNSwxLjEyLTYuMzFjLjc0LTIuMDcsMS44NC0zLjk4LDMuMjctNS42OSwxLjQ0LTEuNzIsMy4yMi0zLjEyLDUuMjktNC4xNiwyLjA5LTEuMDQsNC41LTEuNTcsNy4xNy0xLjU3LDMuMTgsMCw1LjkzLjc1LDguMTcsMi4yMiwyLjIzLDEuNDcsMy45MSwzLjM4LDUsNS42OWwuNTQsMS4xNS0zLC45NS0uNDMtLjgzYy0uNzctMS40Ny0xLjcyLTIuNjYtMi44NC0zLjUzLTEuMTQtLjg4LTIuMzYtMS41Mi0zLjY1LTEuOS0xLjMxLS4zOS0yLjY1LS41OS0zLjk4LS41OS0yLjEzLDAtNC4wNC40Mi01LjY5LDEuMjQtMS42Ni44My0zLjA5LDEuOTYtNC4yMywzLjM3LTEuMTYsMS40Mi0yLjA1LDMuMDItMi42NSw0Ljc1LS42LDEuNzQtLjksMy41My0uOSw1LjM0LDAsMS45OC4zNSwzLjg5LDEuMDUsNS42Ny43LDEuNzksMS42OSwzLjQxLDIuOTQsNC44LDEuMjUsMS4zOSwyLjcxLDIuNSw0LjM2LDMuMzEsMi43OCwxLjM3LDYuMDUsMS42MSw5LjQzLjUsMS40LS40NiwyLjc0LTEuMTcsMy45OS0yLjEyLDEuMjEtLjkzLDIuMjEtMi4xNCwyLjk3LTMuNjJsLjQxLS43OSwzLjAzLjgtLjU0LDEuMmMtLjgyLDEuODEtMi4wNCwzLjM3LTMuNiw0LjYzLTEuNTMsMS4yMy0zLjI1LDIuMTgtNS4xLDIuODEtMS44NC42My0zLjY5Ljk1LTUuNS45NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMzAuMjksNTYuM2gtMy40N2wtNS4xOC0xMS45MmgtMTUuOTlsLTUuMiwxMS45MmgtMy40N2wxNS41Mi0zNS41NWgyLjMxbDE1LjQ3LDM1LjU1Wk0zMDcuMDMsNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTM1MS4yNSw1Ni41NGMtMS44NywwLTMuNjMtLjItNS4yMi0uNTktMS42MS0uNC0zLjE0LTEuMDItNC41NC0xLjgzLTEuMzktLjgxLTIuNzItMS44NC0zLjk3LTMuMDVsLS44Ny0uODUsMi40Mi0yLjEuNzQuNzZjLjc5LjgyLDEuNjIsMS41MywyLjQ2LDIuMTEuODMuNTgsMS43MywxLjA2LDIuNjcsMS40My45My4zNywxLjk0LjY1LDIuOTguODMsMS4wNS4xOCwyLjIuMjcsMy4zOC4yNywzLjA4LDAsNS41Mi0uNTcsNy4yNS0xLjY5LDEuNi0xLjA0LDIuMzgtMi41NiwyLjM4LTQuNjUsMC0xLjQtLjMxLTIuNTItLjk0LTMuMzMtLjY1LS44NS0xLjcxLTEuNTctMy4xNi0yLjEzLTEuNTctLjYxLTMuNjMtMS4xNy02LjEyLTEuNjYtMi40OC0uNDctNC42My0xLjAyLTYuMzgtMS42MS0xLjkxLS42NC0zLjQtMS41Ny00LjQxLTIuNzctMS4wNi0xLjI1LTEuNi0yLjk2LTEuNi01LjA3cy41NS00LjA0LDEuNjQtNS41NWMxLjA4LTEuNSwyLjYxLTIuNjUsNC41Ni0zLjQyLDEuODgtLjczLDQuMDgtMS4xMSw2LjU2LTEuMTEsMS40OSwwLDIuODcuMTQsNC4xMi40MiwxLjI4LjI5LDIuNDcuNzYsMy41NiwxLjM5LDEuMDguNjMsMi4xLDEuNDgsMy4wNSwyLjU0bC42OS43Ni0yLjEzLDIuMy0uODItLjg5Yy0uNjEtLjY2LTEuMjItMS4yMi0xLjgyLTEuNjUtLjU5LS40My0xLjIyLS43Ny0xLjg2LTEuMDEtLjY1LS4yNS0xLjM2LS40NC0yLjExLS41NS0uNzgtLjEyLTEuNjQtLjE4LTIuNTgtLjE4LTMuNDksMC02LjAyLjY0LTcuNTEsMS45Mi0xLjQ2LDEuMjQtMi4xNiwyLjg2LTIuMTYsNC45NSwwLDEuMzMuMjgsMi4zNy44NCwzLjA5LjU4Ljc1LDEuNTYsMS4zNywyLjg5LDEuODQsMS41LjUzLDMuNDcsMS4wNCw1Ljg4LDEuNTMsMi41MS41MSw0LjcyLDEuMSw2LjU4LDEuNzUsMS45OS43MSwzLjU2LDEuNjksNC42NiwyLjk0LDEuMTcsMS4zMiwxLjc2LDMuMTIsMS43Niw1LjM2LDAsMS41Mi0uMzEsMi45LS45Miw0LjEtLjYxLDEuMjEtMS41MiwyLjIzLTIuNjgsMy4wNC0xLjEyLjc4LTIuNDksMS4zOC00LjA2LDEuNzgtMS41My40LTMuMjguNi01LjE4LjZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDA0LjE1LDU2LjNoLTMuNDdsLTUuMTgtMTEuOTJoLTE1Ljk4bC01LjIsMTEuOTJoLTMuNDdsMTUuNTItMzUuNTVoMi4zMWwxNS40NywzNS41NVpNMzgwLjksNDEuMjFoMTMuMjJsLTYuNi0xNS4xOC02LjYyLDE1LjE4WiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8ZyBjbGFzcz0ic3Q5Ij4KICAgICAgICA8cmVjdCBjbGFzcz0ic3Q4IiB4PSIyMS42NSIgd2lkdGg9IjUyLjExIiBoZWlnaHQ9IjU2LjQ3Ii8+CiAgICAgIDwvZz4KICAgICAgPGcgY2xhc3M9InN0NSI+CiAgICAgICAgPHJlY3QgY2xhc3M9InN0NCIgeD0iMTIuMzciIHk9IjM1LjE4IiB3aWR0aD0iNjEuNCIgaGVpZ2h0PSIzMC4wOSIvPgogICAgICA8L2c+CiAgICAgIDxnIGNsYXNzPSJzdDciPgogICAgICAgIDxyZWN0IGNsYXNzPSJzdDAiIHk9IjguNzkiIHdpZHRoPSIzNi44OCIgaGVpZ2h0PSI1Ni40NyIvPgogICAgICA8L2c+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJzdDIiIHBvaW50cz0iMjAuOTggOS4xOCAzMy45OSAxOS4yNiAzNi44OCAxNy41OSAyMS42NSA4LjggMjAuOTggOS4xOCIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QzIiBwb2ludHM9IjU4LjUxIDQ3LjY4IDU4LjUxIDQ0LjE1IDczLjc0IDU1LjU5IDczLjc0IDU2LjQ4IDU4LjUxIDQ3LjY4Ii8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0ic3QyIiBwb2ludHM9IjE1LjIyIDY1LjI3IDE2LjA0IDY1LjI3IDE4LjY2IDQ3LjY3IDE1LjIyIDQ3LjcgMTUuMjIgNjUuMjciLz4KICA8L2c+Cjwvc3ZnPg==" download="metacasa-logo-dark.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>SVG</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h4>Inverted — Dark Background</h4>
-      <div style="background:#0F0F1A;border-radius:8px;padding:1.5rem;margin:0.75rem 0;display:flex;align-items:center;justify-content:center;">
-        <img src="logo-metacasa-inv.svg" alt="Metacasa Logo Inverted" style="height:50px;">
+
+    <div style="margin-top:2rem">
+      <div class="logo-card" style="background:var(--bg-alt);border:1px solid var(--border)">
+        <svg viewBox="0 0 73.76 65.27" style="width:80px;height:auto" xmlns="http://www.w3.org/2000/svg" id="logo-icon-display"><defs><clipPath id="lid1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><linearGradient id="lig1" x1="-727.03" y1="-790.94" x2="-779.2" y2="-838.56" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3472b8"/><stop offset=".47" stop-color="#2fb195"/><stop offset="1" stop-color="#bccf00"/></linearGradient><clipPath id="lid2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><linearGradient id="lig2" x1="-793.53" y1="-794.76" x2="-729.25" y2="-794.76" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a94c97"/><stop offset=".49" stop-color="#ea4e8f"/><stop offset="1" stop-color="#fbbc21"/></linearGradient><clipPath id="lid3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath><linearGradient id="lig3" x1="-784.57" y1="-838.69" x2="-784.57" y2="-786.87" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1f84c7"/><stop offset=".45" stop-color="#7c5fa5"/><stop offset="1" stop-color="#cc64a3"/></linearGradient></defs><g clip-path="url(#lid1)"><rect fill="url(#lig1)" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#lid2)"><rect fill="url(#lig2)" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#lid3)"><rect fill="url(#lig3)" y="8.79" width="36.88" height="56.47"/></g></svg>
       </div>
-      <p>Mark originale + <strong>META</strong> bianco + <strong>CASA</strong> gradient luminoso. Per dark mode, hero, footer.</p>
+      <h4 style="margin-top:1rem">Icon Only</h4>
+      <p style="font-size:14px;color:var(--text-faint)">Mark senza wordmark — per favicon, app icon, avatar</p>
+      <div class="dl-group">
+        <button class="dl-btn" onclick="downloadSVGfromEl('logo-icon-display','metacasa-icon')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>SVG</button>
+      </div>
     </div>
-    <div class="card">
-      <h4>Originale (reference)</h4>
-      <div style="background:#FAFAFA;border-radius:8px;padding:1.5rem;margin:0.75rem 0;display:flex;align-items:center;justify-content:center;">
-        <img src="logo-original.svg" alt="Metacasa Logo Originale" style="height:50px;">
+
+    <h3 style="margin-top:3rem">Logo Rules</h3>
+    <div class="grid-2">
+      <div class="voice-dont">
+        <h4>&#10005; Non fare</h4>
+        <ul>
+          <li>&#10005; Non distorcere le proporzioni</li>
+          <li>&#10005; Non usare colori fuori palette</li>
+          <li>&#10005; Non posizionare su sfondi senza contrasto</li>
+          <li>&#10005; Non aggiungere ombre o effetti</li>
+        </ul>
       </div>
-      <p style="font-size:0.8rem;color:var(--gray-400);">Logo precedente con wordmark monocolore — mantenuto come reference.</p>
+      <div class="voice-do">
+        <h4>&#10003; Best practice</h4>
+        <ul>
+          <li>&#10003; Clear space: minimo altezza del mark</li>
+          <li>&#10003; Preferire SVG per nitidezza</li>
+          <li>&#10003; Su dark background usare versione inverted</li>
+          <li>&#10003; Mantenere sempre leggibilita</li>
+        </ul>
+      </div>
     </div>
   </div>
+</section>
 
-  <h3>Don'ts</h3>
-  <div class="voice-grid">
-    <div class="voice-dont">
-      <h4>Non fare</h4>
-      <ul style="list-style:none;">
-        <li>&#10005; Non distorcere le proporzioni</li>
-        <li>&#10005; Non usare colori fuori palette</li>
-        <li>&#10005; Non posizionare su sfondi senza contrasto</li>
-        <li>&#10005; Non aggiungere ombre o effetti</li>
-      </ul>
+<!-- COMPONENTS -->
+<section class="section" id="components" style="background:var(--bg-alt)">
+  <div class="container">
+    <p class="subtitle"><span class="section-num">04</span> Components</p>
+    <h2>Components</h2>
+
+    <h3>Buttons</h3>
+    <div class="card" style="padding:2rem;margin-bottom:1.5rem">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple);margin-bottom:1rem">Variants</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+        <span class="mc-btn-demo" style="background:var(--purple);color:#fff;padding:12px 28px;border-radius:9999px;font-size:16px;font-weight:600;font-family:Lato;display:inline-flex;align-items:center;gap:8px;cursor:default">Primary CTA</span>
+        <span class="mc-btn-demo" style="background:transparent;color:var(--purple);padding:12px 28px;border-radius:9999px;font-size:16px;font-weight:600;font-family:Lato;border:2px solid var(--purple);cursor:default">Outline</span>
+        <span class="mc-btn-demo" style="background:linear-gradient(135deg,#7a00df,#06B6D4);color:#fff;padding:12px 28px;border-radius:9999px;font-size:16px;font-weight:600;font-family:Lato;cursor:default">Gradient</span>
+        <span class="mc-btn-demo" style="background:var(--text);color:var(--bg);padding:12px 28px;border-radius:9999px;font-size:16px;font-weight:600;font-family:Lato;cursor:default">Dark</span>
+      </div>
     </div>
-    <div class="voice-do">
-      <h4>Best practice</h4>
-      <ul style="list-style:none;">
-        <li>&#10003; Clear space: minimo altezza del mark</li>
-        <li>&#10003; Preferire SVG per nitidezza</li>
-        <li>&#10003; Su dark background usare versione inverted</li>
-        <li>&#10003; Mantenere sempre leggibilita</li>
-      </ul>
+
+    <div class="card" style="padding:2rem;margin-bottom:1.5rem">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple);margin-bottom:1rem">Sizes</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+        <span style="background:var(--purple);color:#fff;padding:8px 18px;border-radius:9999px;font-size:13px;font-weight:600;font-family:Lato">Small</span>
+        <span style="background:var(--purple);color:#fff;padding:12px 28px;border-radius:9999px;font-size:16px;font-weight:600;font-family:Lato">Default</span>
+        <span style="background:var(--purple);color:#fff;padding:16px 36px;border-radius:9999px;font-size:18px;font-weight:600;font-family:Lato">Large</span>
+      </div>
+    </div>
+
+    <div style="background:#1e1e2e;padding:1rem 1.25rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#cdd6f4;overflow-x:auto;line-height:1.8;margin-bottom:2rem;cursor:pointer" onclick="copyHex(this.innerText)">
+&lt;button class="mc-btn"&gt;Activate your Agent&lt;/button&gt;
+&lt;button class="mc-btn mc-btn--outline"&gt;Learn More&lt;/button&gt;
+&lt;button class="mc-btn mc-btn--gradient"&gt;Get Started&lt;/button&gt;</div>
+
+    <h3>Badges &amp; Blockquote</h3>
+    <div class="card" style="padding:2rem;margin-bottom:1.5rem">
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem">
+        <span style="display:inline-flex;padding:5px 14px;font-size:12px;font-weight:600;border-radius:9999px;background:rgba(122,0,223,0.08);color:var(--purple)">Agentic AI</span>
+        <span style="display:inline-flex;padding:5px 14px;font-size:12px;font-weight:600;border-radius:9999px;background:rgba(0,208,132,0.08);color:#059669">Active</span>
+        <span style="display:inline-flex;padding:5px 14px;font-size:12px;font-weight:600;border-radius:9999px;background:rgba(249,115,22,0.08);color:#ea580c">Urgent</span>
+        <span style="display:inline-flex;padding:5px 14px;font-size:12px;font-weight:600;border-radius:9999px;background:rgba(6,182,212,0.08);color:#0891b2">Tech</span>
+      </div>
+      <div style="border-left:3px solid var(--purple);background:rgba(122,0,223,0.03);padding:1rem 1.5rem;border-radius:0 8px 8px 0;font-style:italic;color:var(--text-muted)">
+        Non un tool. Una forza lavoro digitale.
+      </div>
+    </div>
+
+    <h3>Download CSS Componenti</h3>
+    <div class="dl-group">
+      <button class="dl-btn" onclick="downloadComponentCSS()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>metacasa-components.css</button>
+      <button class="dl-btn" onclick="downloadComponentHTML()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>components.html (snippet)</button>
     </div>
   </div>
 </section>
 
 <!-- VOICE & TONE -->
-<section class="section-dark" id="voice">
+<div class="section-dark" id="voice">
   <div class="section-inner">
-    <div class="section-label">04 — Voice & Tone</div>
+    <p class="subtitle"><span class="section-num">05</span> Voice & Tone</p>
     <h2>Brand Personality</h2>
-    <p class="section-desc">La voce Metacasa e' quella di un partner tech che agisce — non un tool passivo che aspetta input.</p>
-
-    <div class="cards" style="margin-top:1.5rem;">
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(122,0,223,0.15); color: var(--purple);">&#9889;</div>
-        <h4>Agentic</h4>
-        <p>Il sistema agisce autonomamente. "Non suggerisce, esegue." Linguaggio attivo, mai passivo.</p>
-      </div>
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(6,182,212,0.15); color: var(--cyan);">&#128202;</div>
-        <h4>Data-Driven</h4>
-        <p>Numeri prima delle promesse. +94% click. +42% telefonate. Dati proprietari, non stime.</p>
-      </div>
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(249,115,22,0.15); color: var(--orange);">&#128170;</div>
-        <h4>Confident</h4>
-        <p>Sicuri di se senza arroganza. "L'unico Sistema Operativo Agentic per il Real Estate."</p>
-      </div>
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(0,208,132,0.15); color: var(--green);">&#129309;</div>
-        <h4>Accessibile</h4>
-        <p>Tech complessa resa semplice. Zero gergo. Il cliente capisce al primo colpo.</p>
-      </div>
-    </div>
+    <p style="margin-bottom:2rem">La voce Metacasa e' quella di un partner tech che agisce — non un tool passivo che aspetta input.</p>
 
     <h3>We Are / We Are Not</h3>
     <table>
@@ -635,242 +570,677 @@ blockquote {
       </tbody>
     </table>
 
-    <h3>Tone by Context</h3>
-    <table>
-      <thead><tr><th>Context</th><th>Tono</th><th>Esempio</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Homepage</strong></td><td>Bold, Agentic</td><td>"Il tuo team AI e' operativo. Dall'acquisizione alla vendita."</td></tr>
-        <tr><td><strong>Agenzie (B2B)</strong></td><td>ROI-oriented</td><td>"Acquisisci piu incarichi. Vendi piu velocemente."</td></tr>
-        <tr><td><strong>Proprietari (B2C)</strong></td><td>Rassicurante, empatico</td><td>"Da foto grezze a render, tour e preventivo — in minuti."</td></tr>
-        <tr><td><strong>Prodotto</strong></td><td>Chiaro, concreto</td><td>"3 professionisti in un engine: Architetto + Legale + Marketer"</td></tr>
-        <tr><td><strong>CTA</strong></td><td>Attivo, senza frizione</td><td>"Attiva il tuo Agente" / "Metti al lavoro la tua AI"</td></tr>
-        <tr><td><strong>Investor</strong></td><td>Metriche-first</td><td>"+500k ARR. +1.000 agenzie. 90% margin. Non promesse — numeri."</td></tr>
-      </tbody>
-    </table>
-
     <h3>Key Phrases</h3>
     <table>
       <thead><tr><th>Frase</th><th>Contesto</th></tr></thead>
       <tbody>
         <tr><td><strong>"Il primo Sistema Operativo Agentic per il Real Estate"</strong></td><td>Positioning statement principale</td></tr>
         <tr><td><strong>"Non un tool. Una forza lavoro digitale."</strong></td><td>Differenziazione</td></tr>
-        <tr><td><strong>"Dall'analogico all'Automazione: Result-as-a-Service"</strong></td><td>Tagline business model</td></tr>
         <tr><td><strong>"Non compri software. Compri risultati."</strong></td><td>RaaS explanation</td></tr>
         <tr><td><strong>"+94% click. +42% telefonate."</strong></td><td>Data proof per agenzie</td></tr>
       </tbody>
     </table>
   </div>
-</section>
+</div>
 
 <!-- IMAGERY -->
 <section class="section" id="imagery">
-  <div class="section-label">05 — Imagery & Visual</div>
-  <h2>Stile Visivo</h2>
+  <div class="container">
+    <p class="subtitle"><span class="section-num">06</span> Imagery & Visual</p>
+    <h2>Stile Visivo</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h4>Render Architettonici</h4>
-      <p>Interni ristrutturati, luminosi, moderni. Aspirazionali ma raggiungibili — "questa potrebbe essere casa tua".</p>
+    <div class="grid-2" style="margin-top:2rem">
+      <div class="card"><h4>Render Architettonici</h4><p style="font-size:14px;color:var(--text-faint)">Interni ristrutturati, luminosi, moderni. Aspirazionali ma raggiungibili.</p></div>
+      <div class="card"><h4>Before / After</h4><p style="font-size:14px;color:var(--text-faint)">Slider interattivo. Dimostra il potenziale trasformativo dell'AI.</p></div>
+      <div class="card"><h4>Device Mockup</h4><p style="font-size:14px;color:var(--text-faint)">iPad/laptop con piattaforma. Comunica "prodotto tech".</p></div>
+      <div class="card"><h4>Data Visualization</h4><p style="font-size:14px;color:var(--text-faint)">Mini chart per metriche. Numeri animati on-scroll.</p></div>
     </div>
-    <div class="card">
-      <h4>Before / After</h4>
-      <p>Slider interattivo. Dimostra il potenziale trasformativo dell'AI. Effetto "wow" immediato.</p>
-    </div>
-    <div class="card">
-      <h4>Device Mockup</h4>
-      <p>iPad/laptop con piattaforma. Comunica "prodotto tech" non servizio artigianale.</p>
-    </div>
-    <div class="card">
-      <h4>Data Visualization</h4>
-      <p>Mini chart per metriche di impatto. Numeri animati on-scroll. Monospace font per KPI.</p>
+
+    <h3 style="margin-top:2.5rem">AI Image Prompt</h3>
+    <div style="border-left:3px solid var(--purple);padding:1.25rem 1.5rem;background:rgba(122,0,223,0.02);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--text-muted);font-size:14px;line-height:1.8;transition:all .5s">
+      Modern Italian interior, freshly renovated, bright natural lighting, warm tones, clean minimal aesthetic, high-end real estate photography style, tech-forward atmosphere with purple accent lighting, professional architectural render quality, aspirational yet achievable feel
     </div>
   </div>
-
-  <h3>Photography Rules</h3>
-  <table>
-    <thead><tr><th>Elemento</th><th>Guideline</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Lighting</strong></td><td>Luminosa, naturale, calda</td></tr>
-      <tr><td><strong>Soggetti</strong></td><td>Interni di case, spazi trasformati</td></tr>
-      <tr><td><strong>Trattamento</strong></td><td>Colori vividi ma naturali, niente filtri pesanti</td></tr>
-      <tr><td><strong>Composizione</strong></td><td>Pulita, centrata, focus sul soggetto</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Visual Don'ts</h3>
-  <table>
-    <thead><tr><th>Evitare</th><th>Motivo</th></tr></thead>
-    <tbody>
-      <tr><td>Interni bui o datati</td><td>Contraddice il messaggio di rinnovamento</td></tr>
-      <tr><td>Effetto fotomontaggio</td><td>Deve sembrare reale e raggiungibile</td></tr>
-      <tr><td>Troppo freddo/sterile</td><td>Il brand bilancia tech con calore</td></tr>
-      <tr><td>Stock photo generiche</td><td>Servono render o foto di alta qualita</td></tr>
-      <tr><td>Troppo luxury</td><td>Target mainstream, non ultra-luxury</td></tr>
-    </tbody>
-  </table>
-
-  <h3>AI Image Generation — Base Prompt</h3>
-  <blockquote>
-    Modern Italian interior, freshly renovated, bright natural lighting, warm tones,
-    clean minimal aesthetic, high-end real estate photography style,
-    tech-forward atmosphere with purple accent lighting,
-    professional architectural render quality, aspirational yet achievable feel
-  </blockquote>
 </section>
 
-<!-- POSITIONING -->
-<section class="section-purple" id="positioning">
-  <div class="section-inner">
-    <div class="section-label">06 — Positioning & Strategy</div>
-    <h2>The Agentic Engine</h2>
-    <p class="section-desc">Non un tool. Una forza lavoro digitale che combina Computer Vision, LLM e Dati Proprietari per automatizzare il lavoro di 3 professionisti.</p>
 
-    <div class="cards" style="margin-top:1.5rem;">
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(122,0,223,0.2); color: #c084fc;">&#127912;</div>
-        <h4>AI Visual Marketing</h4>
-        <p>Da planimetria + foto grezze → Render 3D, Virtual Tour, Video Social, AI Avatars UGC, Brochure Digitale, Landing Page</p>
+<!-- BRAND BOOK MATERIALS -->
+<section class="section" id="brandbook">
+  <div class="container">
+    <p class="subtitle"><span class="section-num">06b</span> Brand Book — Materiali</p>
+    <h2>Asset per Presentazioni</h2>
+    <p style="color:var(--text-faint);margin-bottom:2.5rem">Materiali reali dai progetti Metacasa. Before/After, render, planimetrie e virtual tour.</p>
+
+    <!-- BEFORE / AFTER — VIA POLA -->
+    <h3>Before / After — Via Pola</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem">
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#DC2626;margin-bottom:0.5rem">Stato di fatto</p>
+        <img src="assets/gallery/via-pola/before/1.jpg" alt="Via Pola - Stato attuale" style="width:100%;border-radius:12px;border:1px solid #eee">
       </div>
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(6,182,212,0.2); color: var(--cyan);">&#128203;</div>
-        <h4>AI Compliance & OPS</h4>
-        <p>Smart Docs drag&drop, OCR automatico, Agentic Check fascicolo, Cross-Check logico difformita, Checklist dinamiche per rogito</p>
-      </div>
-      <div class="card-dark card">
-        <div class="card-icon" style="background: rgba(249,115,22,0.2); color: var(--orange);">&#128640;</div>
-        <h4>Sales Automation</h4>
-        <p>Sync CRM/portali immediata, AI Assistant WhatsApp/Email 24/7, Lead nurturing automatico, qualificazione h24</p>
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7a00df;margin-bottom:0.5rem">Progetto Metacasa AI</p>
+        <img src="assets/gallery/via-pola/after/1.jpg" alt="Via Pola - Progetto" style="width:100%;border-radius:12px;border:2px solid rgba(122,0,223,0.15)">
       </div>
     </div>
 
-    <h3>Technology Stack</h3>
-    <table>
-      <thead><tr><th>Layer</th><th>Funzione</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Intelligent Ingestion</strong></td><td>OCR, classificazione automatica, drag&drop massivo</td></tr>
-        <tr><td><strong>The Reasoning Core</strong></td><td>Computer Vision + LLM + Dati Proprietari = Architetto + Legale + Marketer</td></tr>
-        <tr><td><strong>Generative Output</strong></td><td>2D Plan → Render → Tour → Brochure → Landing → Video → 3D Scan</td></tr>
-        <tr><td><strong>Proprietary Data</strong></td><td>Storico costi reali per location — non stime, fatti</td></tr>
-      </tbody>
-    </table>
+    <!-- BEFORE / AFTER — VIA STELVIO -->
+    <h3>Before / After — Via Stelvio</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem">
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#DC2626;margin-bottom:0.5rem">Stato di fatto</p>
+        <img src="assets/gallery/via-stelvio/before/1.jpg" alt="Via Stelvio - Stato attuale" style="width:100%;border-radius:12px;border:1px solid #eee">
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7a00df;margin-bottom:0.5rem">Progetto Metacasa AI</p>
+        <img src="assets/gallery/via-stelvio/after/1.jpg" alt="Via Stelvio - Progetto" style="width:100%;border-radius:12px;border:2px solid rgba(122,0,223,0.15)">
+      </div>
+    </div>
 
-    <h3>Business Model — Hybrid SaaS + RaaS</h3>
-    <blockquote>"Non compri software. Compri risultati." — Result-as-a-Service significa che il cliente paga per output concreti, non per licenze.</blockquote>
+    <!-- BEFORE / AFTER — VIA BARILATTI -->
+    <h3>Before / After — Via Barilatti</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem">
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#DC2626;margin-bottom:0.5rem">Stato di fatto</p>
+        <img src="assets/gallery/via-barilatti/before/1.jpg" alt="Via Barilatti - Stato attuale" style="width:100%;border-radius:12px;border:1px solid #eee">
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#7a00df;margin-bottom:0.5rem">Progetto Metacasa AI</p>
+        <img src="assets/gallery/via-barilatti/after/1.jpg" alt="Via Barilatti - Progetto" style="width:100%;border-radius:12px;border:2px solid rgba(122,0,223,0.15)">
+      </div>
+    </div>
+
+    <!-- IMPATTO -->
+    <div style="background:#fafafa;border-radius:12px;padding:2rem;margin-bottom:2.5rem;border:1px solid #eee">
+      <h4 style="margin-bottom:1rem">Impatto misurato</h4>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
+        <div><div style="font-size:28px;font-weight:700;color:#7a00df">+94%</div><div style="font-size:12px;color:#999">Click annunci</div></div>
+        <div><div style="font-size:28px;font-weight:700;color:#7a00df">+42%</div><div style="font-size:12px;color:#999">Telefonate</div></div>
+        <div><div style="font-size:28px;font-weight:700;color:#7a00df">3x</div><div style="font-size:12px;color:#999">Velocita vendita</div></div>
+        <div><div style="font-size:28px;font-weight:700;color:#7a00df">30s</div><div style="font-size:12px;color:#999">Da foto a render</div></div>
+      </div>
+    </div>
+
+    <!-- VIRTUAL TOUR -->
+    <h3>Virtual Tour 360</h3>
+    <p style="font-size:14px;color:var(--text-faint);margin-bottom:1rem">Tour virtuale interattivo. Il cliente esplora ogni stanza dal browser.</p>
+    <div style="border-radius:12px;overflow:hidden;border:2px solid rgba(122,0,223,0.15);margin-bottom:1rem">
+      <iframe src="https://panorama.homestyler.com/v2?m=np&id=fCqsw1dKxMGRh2NNRo51KZ&locale=it_IT&teamId=6e8595485a0b4ddca81c15942e4f0431" style="width:100%;height:450px;border:none" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem">
+      <a href="https://panorama.homestyler.com/v2?m=np&id=fCqsw1dKxMGRh2NNRo51KZ&locale=it_IT&teamId=6e8595485a0b4ddca81c15942e4f0431" target="_blank" class="dl-btn" style="font-size:13px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>Apri tour a schermo intero</a>
+    </div>
+
+    <!-- GALLERY COMPLETA -->
+    <h3>Gallery Completa — Tutti i Progetti</h3>
+    <p style="font-size:14px;color:var(--text-faint);margin-bottom:1.5rem">5 progetti completi con stato di fatto e render progetto. Scarica tutto per le presentazioni.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:1.5rem">
+      <div style="text-align:center">
+        <img src="assets/gallery/via-pola/after/2.jpg" alt="Via Pola" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+        <p style="font-size:12px;font-weight:600;margin-top:0.5rem">Via Pola</p>
+        <p style="font-size:11px;color:#999">19 foto</p>
+      </div>
+      <div style="text-align:center">
+        <img src="assets/gallery/via-stelvio/after/1.jpg" alt="Via Stelvio" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+        <p style="font-size:12px;font-weight:600;margin-top:0.5rem">Via Stelvio</p>
+        <p style="font-size:11px;color:#999">24 foto</p>
+      </div>
+      <div style="text-align:center">
+        <img src="assets/gallery/via-barilatti/after/1.jpg" alt="Via Barilatti" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+        <p style="font-size:12px;font-weight:600;margin-top:0.5rem">Via Barilatti</p>
+        <p style="font-size:11px;color:#999">25 foto</p>
+      </div>
+      <div style="text-align:center">
+        <img src="assets/gallery/viale-muratori/before/1.jpg" alt="Viale Muratori" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+        <p style="font-size:12px;font-weight:600;margin-top:0.5rem">Viale Muratori</p>
+        <p style="font-size:11px;color:#999">36 foto</p>
+      </div>
+      <div style="text-align:center">
+        <img src="assets/gallery/restituzioni-grafiche/3.jpg" alt="Restituzioni" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+        <p style="font-size:12px;font-weight:600;margin-top:0.5rem">Planimetrie</p>
+        <p style="font-size:11px;color:#999">5 file</p>
+      </div>
+    </div>
+
+    <div class="dl-group" style="flex-wrap:wrap;gap:12px">
+      <a class="dl-btn" href="assets/gallery/via-pola/after/1.jpg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Via Pola — After</a>
+      <a class="dl-btn" href="assets/gallery/via-pola/before/1.jpg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Via Pola — Before</a>
+      <a class="dl-btn" href="assets/gallery/via-stelvio/after/1.jpg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Via Stelvio — After</a>
+      <a class="dl-btn" href="assets/gallery/via-barilatti/after/1.jpg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Via Barilatti — After</a>
+      <a class="dl-btn" href="assets/gallery/via-pola/after/3.jpg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Bagno — After</a>
+      <a class="dl-btn" href="assets/gallery/restituzioni-grafiche/PLN_Via Imperatore Adriano_PLN_Via Imperatore Adriano-1.jpeg" download="planimetria-adriano.jpg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Planimetria Adriano</a>
+      <a class="dl-btn" href="assets/gallery/restituzioni-grafiche/PLN_Via San Felice_PLN_Via San Felice-3.jpeg" download="planimetria-sanfelice.jpg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Planimetria San Felice</a>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <a class="dl-btn" href="assets/metacasa-gallery-completa.zip" download="metacasa-gallery-completa.zip" style="background:var(--purple);color:#fff;border-color:var(--purple);padding:14px 28px;font-size:14px;border-radius:9999px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Scarica tutte le immagini (ZIP — 50 foto, 11 MB)</a>
+    </div>
+
+    <!-- COME USARE -->
+    <h3 style="margin-top:2.5rem">Come usare nelle presentazioni</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem">
+      <div style="background:#fafafa;border-radius:12px;padding:1.5rem;border:1px solid #eee">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">📊</div>
+        <h4>Pitch Deck</h4>
+        <p style="font-size:13px;color:#666">Before/After come slide di impatto. 2 foto affiancate.</p>
+      </div>
+      <div style="background:#fafafa;border-radius:12px;padding:1.5rem;border:1px solid #eee">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">🏢</div>
+        <h4>Demo Agenzia</h4>
+        <p style="font-size:13px;color:#666">Embed il Virtual Tour. Il cliente esplora live.</p>
+      </div>
+      <div style="background:#fafafa;border-radius:12px;padding:1.5rem;border:1px solid #eee">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">📱</div>
+        <h4>Social Media</h4>
+        <p style="font-size:13px;color:#666">Slider Before/After per Reels e Stories.</p>
+      </div>
+    </div>
+
+    <!-- EMBED CODE -->
+    <h3 style="margin-top:2rem">Codice Embed Virtual Tour</h3>
+    <div style="background:#1e1e2e;padding:1rem 1.25rem;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#cdd6f4;overflow-x:auto;line-height:1.8;cursor:pointer" onclick="copyHex(this.innerText)">
+&lt;iframe src="https://panorama.homestyler.com/v2?m=np&amp;id=fCqsw1dKxMGRh2NNRo51KZ&amp;locale=it_IT" width="100%" height="450" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</div>
+    <p style="font-size:12px;color:#999;margin-top:0.5rem">Click per copiare</p>
+  </div>
+</section>
+
+<!-- DOWNLOAD ASSETS -->
+<section class="section" id="tokens" style="background:var(--bg-alt)">
+  <div class="container">
+    <p class="subtitle"><span class="section-num">07</span> Download Assets</p>
+    <h2>Scarica tutto il brand kit</h2>
+    <p style="color:var(--text-faint);margin-bottom:2.5rem">Loghi, font, tokens, CSS e brand guide — pronti per sviluppo e design.</p>
+
+    <!-- Brand Guide MD -->
+    <h3>📄 Brand Guide Markdown</h3>
+    <p style="font-size:14px;color:var(--text-faint);margin-bottom:1rem">Versione completa delle brand guidelines in formato .md</p>
+    <div class="dl-group" style="margin-bottom:2.5rem">
+      <button class="dl-btn" onclick="downloadMD()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>metacasa-brand-guidelines.md</button>
+    </div>
+
+    <!-- Logo PNG Multi-Size -->
+    <h3>🏠 Logo Kit — Multi formato</h3>
+    <p style="font-size:14px;color:var(--text-faint);margin-bottom:1.5rem">Logo originale in SVG + PNG trasparente a diverse risoluzioni</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2.5rem">
+      <!-- Logo Light -->
+      <div class="card" style="padding:1.5rem">
+        <div style="background:var(--bg-alt);border-radius:12px;padding:2rem;margin-bottom:1rem;border:1px solid var(--border);text-align:center">
+          <img id="dl-logo-light" src="assets/logos/metacasa-logo-original.svg" alt="Metacasa Logo" style="height:45px">
+        </div>
+        <h4>Logo — Light Background</h4>
+        <p style="font-size:12px;color:var(--text-faint);margin-bottom:0.75rem">Mark rainbow + wordmark scuro. Sfondo trasparente.</p>
+        <div class="dl-group">
+          <a class="dl-btn" href="assets/logos/metacasa-logo-original.svg" download="metacasa-logo.svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>SVG</a>
+          <button class="dl-btn" onclick="downloadPNG('dl-logo-light','metacasa-logo',1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 404px</button>
+          <button class="dl-btn" onclick="downloadPNG('dl-logo-light','metacasa-logo',2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 808px</button>
+          <button class="dl-btn" onclick="downloadPNG('dl-logo-light','metacasa-logo',4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 1616px</button>
+        </div>
+      </div>
+
+      <!-- Logo Dark -->
+      <div class="card" style="padding:1.5rem">
+        <div style="background:#151520;border-radius:12px;padding:2rem;margin-bottom:1rem;text-align:center">
+          <svg id="dl-logo-dark2" style="height:45px" viewBox="0 0 404.15 65.27" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="dlc1b"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><linearGradient id="dlg1b" x1="-727.03" y1="-790.94" x2="-779.2" y2="-838.56" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3472b8"/><stop offset=".47" stop-color="#2fb195"/><stop offset="1" stop-color="#bccf00"/></linearGradient><clipPath id="dlc2b"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><linearGradient id="dlg2b" x1="-793.53" y1="-794.76" x2="-729.25" y2="-794.76" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a94c97"/><stop offset=".49" stop-color="#ea4e8f"/><stop offset="1" stop-color="#fbbc21"/></linearGradient><clipPath id="dlc3b"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath><linearGradient id="dlg3b" x1="-784.57" y1="-838.69" x2="-784.57" y2="-786.87" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1f84c7"/><stop offset=".45" stop-color="#7c5fa5"/><stop offset="1" stop-color="#cc64a3"/></linearGradient></defs><g><g clip-path="url(#dlc1b)"><rect fill="url(#dlg1b)" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#dlc2b)"><rect fill="url(#dlg2b)" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#dlc3b)"><rect fill="url(#dlg3b)" y="8.79" width="36.88" height="56.47"/></g></g><g fill="#ffffff"><polygon points="137.9 56.3 134.72 56.3 134.72 27.97 121.69 49.73 119.67 49.73 106.64 27.97 106.64 56.3 103.47 56.3 103.47 20.75 104.4 20.75 104.92 20.75 105.97 20.75 120.68 45.31 135.39 20.75 136.44 20.75 136.95 20.75 137.9 20.75 137.9 56.3"/><polygon points="176.05 56.3 151.95 56.3 151.95 20.75 175.63 20.75 175.63 23.92 155.12 23.92 155.12 36.56 173.09 36.56 173.09 39.74 155.12 39.74 155.12 53.13 176.05 53.13 176.05 56.3"/><polygon points="200.03 56.3 196.86 56.3 196.86 23.92 184.09 23.92 184.09 20.75 212.79 20.75 212.79 23.92 200.03 23.92 200.03 56.3"/><path d="M251.96,56.3h-3.47l-5.18-11.92h-15.98l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM228.71,41.21h13.22l-6.6-15.18-6.62,15.18Z"/><path d="M275.88,56.54c-2.43,0-4.69-.54-6.74-1.61-2.01-1.05-3.79-2.47-5.26-4.21-1.47-1.74-2.62-3.71-3.41-5.88-.79-2.16-1.19-4.39-1.19-6.6s.38-4.25,1.12-6.31c.74-2.07,1.84-3.98,3.27-5.69,1.44-1.72,3.22-3.12,5.29-4.16,2.09-1.04,4.5-1.57,7.17-1.57,3.18,0,5.93.75,8.17,2.22,2.23,1.47,3.91,3.38,5,5.69l.54,1.15-3,.95-.43-.83c-.77-1.47-1.72-2.66-2.84-3.53-1.14-.88-2.36-1.52-3.65-1.9-1.31-.39-2.65-.59-3.98-.59-2.13,0-4.04.42-5.69,1.24-1.66.83-3.09,1.96-4.23,3.37-1.16,1.42-2.05,3.02-2.65,4.75-.6,1.74-.9,3.53-.9,5.34,0,1.98.35,3.89,1.05,5.67.7,1.79,1.69,3.41,2.94,4.8,1.25,1.39,2.71,2.5,4.36,3.31,2.78,1.37,6.05,1.61,9.43.5,1.4-.46,2.74-1.17,3.99-2.12,1.21-.93,2.21-2.14,2.97-3.62l.41-.79,3.03.8-.54,1.2c-.82,1.81-2.04,3.37-3.6,4.63-1.53,1.23-3.25,2.18-5.1,2.81-1.84.63-3.69.95-5.5.95Z"/><path d="M330.29,56.3h-3.47l-5.18-11.92h-15.99l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM307.03,41.21h13.22l-6.6-15.18-6.62,15.18Z"/><path d="M351.25,56.54c-1.87,0-3.63-.2-5.22-.59-1.61-.4-3.14-1.02-4.54-1.83-1.39-.81-2.72-1.84-3.97-3.05l-.87-.85,2.42-2.1.74.76c.79.82,1.62,1.53,2.46,2.11.83.58,1.73,1.06,2.67,1.43.93.37,1.94.65,2.98.83,1.05.18,2.2.27,3.38.27,3.08,0,5.52-.57,7.25-1.69,1.6-1.04,2.38-2.56,2.38-4.65,0-1.4-.31-2.52-.94-3.33-.65-.85-1.71-1.57-3.16-2.13-1.57-.61-3.63-1.17-6.12-1.66-2.48-.47-4.63-1.02-6.38-1.61-1.91-.64-3.4-1.57-4.41-2.77-1.06-1.25-1.6-2.96-1.6-5.07s.55-4.04,1.64-5.55c1.08-1.5,2.61-2.65,4.56-3.42,1.88-.73,4.08-1.11,6.56-1.11,1.49,0,2.87.14,4.12.42,1.28.29,2.47.76,3.56,1.39,1.08.63,2.1,1.48,3.05,2.54l.69.76-2.13,2.3-.82-.89c-.61-.66-1.22-1.22-1.82-1.65-.59-.43-1.22-.77-1.86-1.01-.65-.25-1.36-.44-2.11-.55-.78-.12-1.64-.18-2.58-.18-3.49,0-6.02.64-7.51,1.92-1.46,1.24-2.16,2.86-2.16,4.95,0,1.33.28,2.37.84,3.09.58.75,1.56,1.37,2.89,1.84,1.5.53,3.47,1.04,5.88,1.53,2.51.51,4.72,1.1,6.58,1.75,1.99.71,3.56,1.69,4.66,2.94,1.17,1.32,1.76,3.12,1.76,5.36,0,1.52-.31,2.9-.92,4.1-.61,1.21-1.52,2.23-2.68,3.04-1.12.78-2.49,1.38-4.06,1.78-1.53.4-3.28.6-5.18.6Z"/><path d="M404.15,56.3h-3.47l-5.18-11.92h-15.98l-5.2,11.92h-3.47l15.52-35.55h2.31l15.47,35.55ZM380.9,41.21h13.22l-6.6-15.18-6.62,15.18Z"/></g></svg>
+        </div>
+        <h4>Logo — Dark Background</h4>
+        <p style="font-size:12px;color:var(--text-faint);margin-bottom:0.75rem">Icona rainbow + wordmark bianco. Sfondo trasparente.</p>
+        <div class="dl-group">
+          <button class="dl-btn" onclick="downloadSVGfromEl('dl-logo-dark2','metacasa-logo-dark')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>SVG</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('dl-logo-dark2','metacasa-logo-dark',1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 404px</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('dl-logo-dark2','metacasa-logo-dark',2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 808px</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('dl-logo-dark2','metacasa-logo-dark',4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>PNG 1616px</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon Set -->
+    <h3>🎨 Icon Set — Varianti colore</h3>
+    <p style="font-size:14px;color:var(--text-faint);margin-bottom:1.5rem">Mark Metacasa in varianti colore per diverse applicazioni</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2.5rem">
+      <div class="card" style="text-align:center;padding:1.25rem">
+        <div style="padding:1rem">
+          <svg viewBox="0 0 73.76 65.27" style="height:50px" xmlns="http://www.w3.org/2000/svg" id="icon-color"><defs><clipPath id="ic1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><linearGradient id="ig1" x1="-727.03" y1="-790.94" x2="-779.2" y2="-838.56" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3472b8"/><stop offset=".47" stop-color="#2fb195"/><stop offset="1" stop-color="#bccf00"/></linearGradient><clipPath id="ic2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><linearGradient id="ig2" x1="-793.53" y1="-794.76" x2="-729.25" y2="-794.76" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a94c97"/><stop offset=".49" stop-color="#ea4e8f"/><stop offset="1" stop-color="#fbbc21"/></linearGradient><clipPath id="ic3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath><linearGradient id="ig3" x1="-784.57" y1="-838.69" x2="-784.57" y2="-786.87" gradientTransform="translate(803.01 844.99)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1f84c7"/><stop offset=".45" stop-color="#7c5fa5"/><stop offset="1" stop-color="#cc64a3"/></linearGradient></defs><g clip-path="url(#ic1)"><rect fill="url(#ig1)" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#ic2)"><rect fill="url(#ig2)" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#ic3)"><rect fill="url(#ig3)" y="8.79" width="36.88" height="56.47"/></g></svg>
+        </div>
+        <p style="font-size:13px;font-weight:600">Colore originale</p>
+        <div class="dl-group" style="justify-content:center;margin-top:0.5rem">
+          <button class="dl-btn" onclick="downloadSVGfromEl('icon-color','metacasa-icon-color')">SVG</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('icon-color','metacasa-icon-color',4)">PNG</button>
+        </div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.25rem">
+        <div style="padding:1rem">
+          <svg viewBox="0 0 73.76 65.27" style="height:50px" xmlns="http://www.w3.org/2000/svg" id="icon-black"><defs><clipPath id="ib1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><clipPath id="ib2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><clipPath id="ib3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath></defs><g clip-path="url(#ib1)"><rect fill="#1d1d1b" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#ib2)"><rect fill="#1d1d1b" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#ib3)"><rect fill="#1d1d1b" y="8.79" width="36.88" height="56.47"/></g></svg>
+        </div>
+        <p style="font-size:13px;font-weight:600">Nero</p>
+        <div class="dl-group" style="justify-content:center;margin-top:0.5rem">
+          <button class="dl-btn" onclick="downloadSVGfromEl('icon-black','metacasa-icon-black')">SVG</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('icon-black','metacasa-icon-black',4)">PNG</button>
+        </div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.25rem">
+        <div style="padding:1rem;background:#1d1d1b;border-radius:8px">
+          <svg viewBox="0 0 73.76 65.27" style="height:50px" xmlns="http://www.w3.org/2000/svg" id="icon-white"><defs><clipPath id="iw1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><clipPath id="iw2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><clipPath id="iw3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath></defs><g clip-path="url(#iw1)"><rect fill="#ffffff" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#iw2)"><rect fill="#ffffff" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#iw3)"><rect fill="#ffffff" y="8.79" width="36.88" height="56.47"/></g></svg>
+        </div>
+        <p style="font-size:13px;font-weight:600">Bianco</p>
+        <div class="dl-group" style="justify-content:center;margin-top:0.5rem">
+          <button class="dl-btn" onclick="downloadSVGfromEl('icon-white','metacasa-icon-white')">SVG</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('icon-white','metacasa-icon-white',4)">PNG</button>
+        </div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.25rem">
+        <div style="padding:1rem">
+          <svg viewBox="0 0 73.76 65.27" style="height:50px" xmlns="http://www.w3.org/2000/svg" id="icon-gradient"><defs><clipPath id="ipg1"><polygon points="58.53 30.09 58.53 47.68 64.22 54.51 73.76 56.47 73.76 45.47 73.76 42.59 73.76 21.29 55.32 10.65 36.88 0 21.65 8.8 36.88 17.59 58.53 30.09"/></clipPath><clipPath id="ipg2"><polygon points="15.23 65.27 58.53 65.27 73.76 56.47 58.53 47.68 15.23 47.68 12.37 55.99 15.23 65.27"/></clipPath><clipPath id="ipg3"><polygon points="15.23 47.68 15.23 30.09 36.88 17.59 21.65 8.79 18.44 10.65 0 21.29 0 42.59 0 46.62 0 56.47 15.23 65.27 15.23 47.68"/></clipPath><linearGradient id="ipgg" x1="0" y1="0" x2="73.76" y2="65.27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7A00DF"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs><g clip-path="url(#ipg1)"><rect fill="url(#ipgg)" x="21.65" width="52.11" height="56.47"/></g><g clip-path="url(#ipg2)"><rect fill="url(#ipgg)" x="12.37" y="35.18" width="61.4" height="30.09"/></g><g clip-path="url(#ipg3)"><rect fill="url(#ipgg)" y="8.79" width="36.88" height="56.47"/></g></svg>
+        </div>
+        <p style="font-size:13px;font-weight:600">Gradient AI</p>
+        <div class="dl-group" style="justify-content:center;margin-top:0.5rem">
+          <button class="dl-btn" onclick="downloadSVGfromEl('icon-gradient','metacasa-icon-gradient')">SVG</button>
+          <button class="dl-btn" onclick="downloadPNGfromSVG('icon-gradient','metacasa-icon-gradient',4)">PNG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fonts -->
+    <h3>🔤 Font Downloads</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2.5rem">
+      <div class="card" style="padding:1.25rem">
+        <h4 style="color:var(--purple)">Lato</h4>
+        <p style="font-size:13px;color:var(--text-faint)">Headings + Body</p>
+        <div class="dl-group"><a class="dl-btn" href="https://fonts.google.com/specimen/Lato" target="_blank">Google Fonts</a><button class="dl-btn" onclick="downloadFont('Lato')">Download TTF</button></div>
+      </div>
+      <div class="card" style="padding:1.25rem">
+        <h4>Montserrat</h4>
+        <p style="font-size:13px;color:var(--text-faint)">Accent / Labels</p>
+        <div class="dl-group"><a class="dl-btn" href="https://fonts.google.com/specimen/Montserrat" target="_blank">Google Fonts</a><button class="dl-btn" onclick="downloadFont('Montserrat')">Download TTF</button></div>
+      </div>
+      <div class="card" style="padding:1.25rem">
+        <h4>Inter</h4>
+        <p style="font-size:13px;color:var(--text-faint)">Prodotto / Tabelle</p>
+        <div class="dl-group"><a class="dl-btn" href="https://fonts.google.com/specimen/Inter" target="_blank">Google Fonts</a><button class="dl-btn" onclick="downloadFont('Inter')">Download TTF</button></div>
+      </div>
+      <div class="card" style="padding:1.25rem">
+        <h4 style="color:var(--purple)">JetBrains Mono</h4>
+        <p style="font-size:13px;color:var(--text-faint)">Code / KPI</p>
+        <div class="dl-group"><a class="dl-btn" href="https://fonts.google.com/specimen/JetBrains+Mono" target="_blank">Google Fonts</a><button class="dl-btn" onclick="downloadFont('JetBrains+Mono')">Download TTF</button></div>
+      </div>
+    </div>
+
+    <!-- CSS / Tokens -->
+    <h3>⚙️ Design Tokens & CSS</h3>
+    <div class="dl-group" style="flex-wrap:wrap;gap:12px">
+      <button class="dl-btn" onclick="downloadCSS()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>metacasa-tokens.css</button>
+      <button class="dl-btn" onclick="downloadJSON()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>metacasa-tokens.json</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- POSITIONING -->
+<div class="section-purple" id="positioning">
+  <div class="section-inner">
+    <p class="subtitle"><span class="section-num">08</span> Positioning & Strategy</p>
+    <h2>The Agentic Engine</h2>
+    <p style="margin-bottom:2rem">Non un tool. Una forza lavoro digitale che combina Computer Vision, LLM e Dati Proprietari.</p>
+
+    <div class="grid-3" style="margin-top:2rem">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:2rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🎨</div>
+        <h4 style="color:#fff;font-family:var(--font-accent)">AI Visual Marketing</h4>
+        <p>Render 3D, Virtual Tour, Video Social, AI Avatars, Brochure, Landing Page</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:2rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">📋</div>
+        <h4 style="color:#fff;font-family:var(--font-accent)">AI Compliance & OPS</h4>
+        <p>Smart Docs, OCR, Agentic Check, Cross-Check difformita, Checklist rogito</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:2rem">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem">🚀</div>
+        <h4 style="color:#fff;font-family:var(--font-accent)">Sales Automation</h4>
+        <p>Sync CRM/portali, AI Assistant 24/7, Lead nurturing automatico</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem">Messaging Evolution</h3>
+    <div class="comparison">
+      <div class="comp-col comp-old" style="background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.15)">
+        <h4 style="color:#f87171">&#10060; Sito Attuale</h4>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"Ristruttura senza preoccupazioni"</div>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"Un preventivo in pochi click"</div>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"Provalo subito gratis"</div>
+      </div>
+      <div class="comp-arrow" style="color:rgba(255,255,255,0.3)">→</div>
+      <div class="comp-col comp-new" style="background:rgba(122,0,223,0.1);border-color:rgba(122,0,223,0.25)">
+        <h4 style="color:#c084fc">⚡ Nuovo (Agentic)</h4>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"La forza lavoro digitale che esegue per te"</div>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"3 professionisti in un engine"</div>
+        <div class="comp-item" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.05)">"Attiva il tuo Agente AI"</div>
+      </div>
+    </div>
 
     <h3>Roadmap</h3>
     <table>
       <thead><tr><th>Fase</th><th>Periodo</th><th>Focus</th></tr></thead>
       <tbody>
-        <tr><td><strong>Validation</strong> &#9989;</td><td>Q4 2025</td><td>SaaS + Gen-AI + 1000 clienti + 500k ARR</td></tr>
+        <tr><td><strong>Validation ✅</strong></td><td>Q4 2025</td><td>SaaS + Gen-AI + 1000 clienti + 500k ARR</td></tr>
         <tr><td><strong>Agentic Scale-Up</strong></td><td>Q3 2026</td><td>Video Suite + Doc-Intelligence + 1M ARR</td></tr>
         <tr><td><strong>Ecosystem</strong></td><td>2027</td><td>Voice AI + Deep CRM + Ad-Tech Autopilot</td></tr>
         <tr><td><strong>BIM Standard</strong></td><td>2028</td><td>Digital Twin + Universal Protocol + EU Expansion</td></tr>
-        <tr><td><strong>Exit</strong></td><td>2029</td><td>CRM Acquisition o AI Models Integration</td></tr>
       </tbody>
     </table>
   </div>
-</section>
-
-<!-- INNOVATION -->
-<section class="section" id="innovation">
-  <div class="section-label">07 — Innovation Upgrade</div>
-  <h2>Il Gap Sito vs Deck</h2>
-  <p class="section-desc">Il deck posiziona Metacasa come Sistema Operativo Agentic rivoluzionario. Il sito comunica ancora come tool di ristrutturazione. Allineare e' la priorita.</p>
-
-  <h3>Messaging Evolution</h3>
-  <div class="comparison">
-    <div class="comp-col comp-old">
-      <h4>&#10060; Sito Attuale</h4>
-      <div class="comp-item">"Ristruttura senza preoccupazioni"</div>
-      <div class="comp-item">"Un preventivo in pochi click"</div>
-      <div class="comp-item">"Strumenti avanzati"</div>
-      <div class="comp-item">"Provalo subito gratis"</div>
-      <div class="comp-item">Solo render/preventivi</div>
-    </div>
-    <div class="comp-arrow">&#8594;</div>
-    <div class="comp-col comp-new">
-      <h4>&#9889; Nuovo (Agentic)</h4>
-      <div class="comp-item">"La forza lavoro digitale che esegue per te"</div>
-      <div class="comp-item">"3 professionisti in un engine"</div>
-      <div class="comp-item">"Agentic AI: non suggerisce, esegue"</div>
-      <div class="comp-item">"Attiva il tuo Agente AI"</div>
-      <div class="comp-item">3 pilastri: Visual + Compliance + Sales</div>
-    </div>
-  </div>
-
-  <h3>Design Recommendations</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>Typography: 2 Font System</h4>
-      <p><strong>Space Grotesk</strong> (headings) + <strong>Inter</strong> (body/UI). Eliminare Lato e Montserrat. Piu tech-native, piu coerente.</p>
-    </div>
-    <div class="card">
-      <h4>AI Gradient</h4>
-      <p>Purple → Cyan <code>linear-gradient(135deg, #7A00DF, #06B6D4)</code> ovunque l'AI e' protagonista. Signature visiva.</p>
-    </div>
-    <div class="card">
-      <h4>Dark Mode</h4>
-      <p>Background <code>#0F0F1A</code> con tinta purple. Per hero sections, pricing, feature showcase.</p>
-    </div>
-    <div class="card">
-      <h4>Icon System</h4>
-      <p>Icone proprietarie: architettura + AI. Outlined 2px, 24px grid, 4px radius. Micro-animazioni hover.</p>
-    </div>
-    <div class="card">
-      <h4>Motion Design</h4>
-      <p>Scroll animations, number counters animati, AI "breathing" pulse, before/after gesture-enabled.</p>
-    </div>
-    <div class="card">
-      <h4>Tech Signals</h4>
-      <p>Grid overlay, glassmorphism cards, monospace per KPI, purple glow su elementi AI attivi.</p>
-    </div>
-  </div>
-
-  <h3>Homepage Blueprint</h3>
-  <table>
-    <thead><tr><th>Sezione</th><th>Contenuto</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Hero</strong></td><td>"Il Sistema Operativo Agentic per il Real Estate" + video demo 30s + CTA "Attiva il tuo Agente"</td></tr>
-      <tr><td><strong>Il Problema</strong></td><td>"5-6 software scollegati. L'unica strategia: abbassare il prezzo."</td></tr>
-      <tr><td><strong>The Engine</strong></td><td>I 3 pilastri con demo interattiva: Visual / Compliance / Sales</td></tr>
-      <tr><td><strong>Traction</strong></td><td>+500k ARR / +1.000 agenzie / 4x YoY / +94% click — numeri animati</td></tr>
-      <tr><td><strong>RaaS</strong></td><td>"Non compri software. Compri risultati." — modello spiegato</td></tr>
-      <tr><td><strong>Trust</strong></td><td>Loghi partner + vision "BIM Immobiliare" 2028</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- VALUES -->
-<section class="section-gray">
-  <div class="section-inner">
-    <div class="section-label">08 — Values</div>
-    <h2>Valori Aziendali</h2>
-    <div class="cards" style="margin-top:1.5rem;">
-      <div class="card">
-        <div class="card-icon" style="background: rgba(122,0,223,0.08); color: var(--purple);">&#128161;</div>
-        <h4>Trasparenza e Fiducia</h4>
-        <p>Chiarezza assoluta su costi, tempi, qualifiche. Ogni euro tracciato, ogni scelta motivata dai dati.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" style="background: rgba(6,182,212,0.08); color: var(--cyan);">&#9881;</div>
-        <h4>Tecnologia</h4>
-        <p>Piattaforma intuitiva che guida ogni passo. L'AI come forza lavoro, non come feature.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" style="background: rgba(0,208,132,0.08); color: #059669;">&#127758;</div>
-        <h4>Impatto Sociale</h4>
-        <p>Pratiche sostenibili, transizione energetica, abitazioni green. Contribuiamo alla trasformazione del real estate residenziale.</p>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p><strong>Metacasa Brand Guidelines</strong> — v1.0 — 23 Marzo 2026</p>
-  <p style="margin-top:0.5rem;">Fonti: metacasa.ai (3 pagine) + Pitch Deck Investor (91 slide)</p>
-  <p style="margin-top:0.5rem;">Documento generato con brand-extractor skill</p>
+  <p><strong>Metacasa Brand Guidelines</strong> — v2.1 Website Style — Aprile 2026</p>
+  <p style="margin-top:0.5rem;opacity:0.6">Stile grafico estratto da <a href="https://www.metacasa.ai" style="color:var(--purple)">metacasa.ai</a></p>
 </footer>
 
+<!-- TOAST -->
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+function copyHex(v){navigator.clipboard.writeText(v);const t=document.getElementById('toast');t.textContent='Copied: '+v;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+
+// Download PNG from SVG element
+function downloadPNGfromSVG(id,name,scale){
+  const el=document.getElementById(id);
+  const svgText=new XMLSerializer().serializeToString(el);
+  renderSVGtoPNG(svgText,name,scale);
+}
+
+// Download SVG from inline element
+function downloadSVGfromEl(id,name){
+  const el=document.getElementById(id);
+  const data=new XMLSerializer().serializeToString(el);
+  const blob=new Blob([data],{type:'image/svg+xml'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=name+'.svg';a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// Download font via Google Fonts
+function downloadFont(family){
+  window.open('https://fonts.google.com/download?family='+family,'_blank');
+}
+
+// Download PNG from <img> or <svg> element (transparent bg)
+function downloadPNG(id,name,scale){
+  const el=document.getElementById(id);
+  if(el.tagName==='IMG'){
+    fetch(el.src).then(r=>r.text()).then(svgText=>{renderSVGtoPNG(svgText,name,scale)});
+  } else {
+    const svgText=new XMLSerializer().serializeToString(el);
+    renderSVGtoPNG(svgText,name,scale);
+  }
+}
+function renderSVGtoPNG(svgText,name,scale){
+  const parser=new DOMParser();
+  const svgDoc=parser.parseFromString(svgText,'image/svg+xml');
+  const svgEl=svgDoc.querySelector('svg');
+  const vb=svgEl.getAttribute('viewBox');
+  let w=404,h=65;
+  if(vb){const p=vb.split(/\s+/);w=parseFloat(p[2]);h=parseFloat(p[3]);}
+  const canvas=document.createElement('canvas');
+  canvas.width=w*scale;canvas.height=h*scale;
+  const ctx=canvas.getContext('2d');
+  const img=new Image();
+  img.onload=function(){
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    canvas.toBlob(function(blob){
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);
+      a.download=name+'@'+scale+'x.png';
+      a.click();URL.revokeObjectURL(a.href);
+    },'image/png');
+  };
+  img.src='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(svgText)));
+}
+
+// Download SVG from inline element
+// Download Brand Guidelines as .md
+function downloadMD(){
+  var m="# Metacasa Brand Guidelines 2026\n\n";
+  m+="> Il documento di riferimento per visual identity, voice, positioning e strategia del brand Metacasa.\n\n";
+  m+="**Ultimo aggiornamento:** Aprile 2026\n";
+  m+="**Fonti:** Website + Pitch Deck (91 slide)\n\n---\n\n";
+  m+="## Quick Reference\n\n";
+  m+="| Elemento | Valore |\n|----------|--------|\n";
+  m+="| **Primary Color** | #7A00DF Metacasa Purple |\n";
+  m+="| **Secondary** | #4F23CC Deep Purple |\n";
+  m+="| **Accent** | #F97316 Orange / #06B6D4 Cyan |\n";
+  m+="| **Heading Font** | Lato |\n";
+  m+="| **Accent Font** | Montserrat |\n";
+  m+="| **Body Font** | Lato + Inter |\n";
+  m+="| **Code Font** | JetBrains Mono |\n";
+  m+="| **Voice** | Agentic, Confident, Data-driven |\n";
+  m+="| **Positioning** | Sistema Operativo Agentic AI All-In-One |\n\n";
+  m+="### Key Metrics\n\n";
+  m+="| Metrica | Valore |\n|---------|--------|\n";
+  m+="| ARR | +500k |\n| Clienti Attivi | +1.000 |\n| YoY Growth | 4x |\n";
+  m+="| Gross Margin | 90% |\n| Click Annunci | +94% |\n| Telefonate | +42% |\n\n---\n\n";
+  m+="## 01 — Color Palette\n\n";
+  m+="La palette purple distingue Metacasa nel panorama prop-tech.\n\n";
+  m+="### Primary Colors\n\n";
+  m+="| Nome | Hex | Uso |\n|------|-----|-----|\n";
+  m+="| **Metacasa Purple** | #7A00DF | Brand primary, hero, key accents |\n";
+  m+="| **Deep Purple** | #4F23CC | Buttons, CTAs, interactive |\n";
+  m+="| **Violet 700** | #6D28D9 | CTA evoluto, miglior contrast |\n\n";
+  m+="### Secondary / Accent\n\n";
+  m+="| Nome | Hex | Uso |\n|------|-----|-----|\n";
+  m+="| **Orange 500** | #F97316 | Highlights, urgenza, energy |\n";
+  m+="| **Cyan 500** | #06B6D4 | Tech accent, info, links |\n";
+  m+="| **Vivid Green** | #00D084 | Success, positivo, conferme |\n\n";
+  m+="### AI Gradient\n\nlinear-gradient(135deg, #7A00DF, #06B6D4)\n\n";
+  m+="### Neutral Palette\n\n";
+  m+="| Nome | Hex | Uso |\n|------|-----|-----|\n";
+  m+="| **Dark Gray** | #313131 | Body text (mai nero puro) |\n";
+  m+="| **Medium Gray** | #ABB8C3 | Muted, placeholder |\n";
+  m+="| **Light Gray** | #EEEEEE | Borders, dividers |\n";
+  m+="| **White** | #FFFFFF | Backgrounds |\n\n";
+  m+="### Dark Mode\n\nBackground viola scuro #1a1530 (mai nero puro)\n\n---\n\n";
+  m+="## 02 — Typography\n\n";
+  m+="Tre famiglie dal sito: **Lato** (headings + body), **Montserrat** (accent, labels), **Inter** (prodotto, UI).\n\n";
+  m+="### Type Scale\n\n";
+  m+="| Livello | Font | Size | Weight |\n|---------|------|------|--------|\n";
+  m+="| **H1 Hero** | Lato | 50px | 700 |\n";
+  m+="| **H2 Section** | Lato | 42px | 900 |\n";
+  m+="| **H3 Card Title** | Montserrat | 20px | 700 |\n";
+  m+="| **Body** | Lato | 16px | 400 |\n";
+  m+="| **Label** | Montserrat | 13px | 700 / uppercase |\n";
+  m+="| **Button** | Lato | 16px | 600 / pill |\n";
+  m+="| **Code / KPI** | JetBrains Mono | 13px | 500 |\n\n---\n\n";
+  m+="## 03 — Logo\n\n";
+  m+="### Varianti\n\n";
+  m+="- **Light Background:** Mark rainbow + wordmark METACASA scuro\n";
+  m+="- **Dark Background:** Icona rainbow colorata + wordmark METACASA bianco\n";
+  m+="- **Icon Only:** Mark senza wordmark — favicon, app icon, avatar\n\n";
+  m+="### Don'ts\n\n";
+  m+="- Non distorcere le proporzioni\n- Non usare colori fuori palette\n";
+  m+="- Non posizionare su sfondi senza contrasto\n- Non aggiungere ombre o effetti\n\n";
+  m+="### Best Practice\n\n";
+  m+="- Clear space: minimo altezza del mark\n- Preferire SVG per nitidezza\n";
+  m+="- Su dark background usare versione inverted\n\n---\n\n";
+  m+="## 04 — Voice & Tone\n\n";
+  m+="La voce Metacasa e' quella di un partner tech che agisce — non un tool passivo.\n\n";
+  m+="### Brand Personality\n\n";
+  m+="| Trait | Descrizione |\n|-------|-------------|\n";
+  m+="| **Agentic** | Non suggerisce, esegue. Linguaggio attivo, mai passivo. |\n";
+  m+="| **Data-Driven** | Numeri prima delle promesse. Dati proprietari, non stime. |\n";
+  m+="| **Confident** | Sicuri senza arroganza. |\n";
+  m+="| **Accessibile** | Tech complessa resa semplice. Zero gergo. |\n\n";
+  m+="### We Are / We Are Not\n\n";
+  m+="| Trait | We Are | We Are Not |\n|-------|--------|------------|\n";
+  m+="| **Innovativi** | AI-driven, data-informed | Hype vuoto, buzzword |\n";
+  m+="| **Concreti** | Risultati misurabili | Promesse vaghe |\n";
+  m+="| **Professionali** | Competenti, autorevoli | Freddi, burocratici |\n";
+  m+="| **Accessibili** | Chiari, diretti | Vaghi, banali |\n\n";
+  m+="### Tone by Context\n\n";
+  m+="| Context | Tono | Esempio |\n|---------|------|--------|\n";
+  m+="| **Homepage** | Bold, Agentic | Il tuo team AI e' operativo. |\n";
+  m+="| **Agenzie B2B** | ROI-oriented | Acquisisci piu incarichi. Vendi piu velocemente. |\n";
+  m+="| **Proprietari B2C** | Rassicurante | Da foto grezze a render in minuti. |\n";
+  m+="| **Prodotto** | Chiaro, concreto | 3 professionisti in un engine. |\n";
+  m+="| **CTA** | Attivo | Attiva il tuo Agente |\n";
+  m+="| **Investor** | Metriche-first | +500k ARR. 90% margin. |\n\n";
+  m+="### Key Phrases\n\n";
+  m+="- Il primo Sistema Operativo Agentic per il Real Estate\n";
+  m+="- Non un tool. Una forza lavoro digitale.\n";
+  m+="- Dall'analogico all'Automazione: Result-as-a-Service\n";
+  m+="- Non compri software. Compri risultati.\n";
+  m+="- +94% click. +42% telefonate.\n\n---\n\n";
+  m+="## 05 — Imagery & Visual\n\n";
+  m+="### Photography Rules\n\n";
+  m+="| Elemento | Guideline |\n|----------|-----------|\n";
+  m+="| **Lighting** | Luminosa, naturale, calda |\n";
+  m+="| **Soggetti** | Interni di case, spazi trasformati |\n";
+  m+="| **Trattamento** | Colori vividi ma naturali |\n";
+  m+="| **Composizione** | Pulita, centrata, focus sul soggetto |\n\n";
+  m+="### Visual Don'ts\n\n";
+  m+="| Evitare | Motivo |\n|---------|--------|\n";
+  m+="| Interni bui o datati | Contraddice il rinnovamento |\n";
+  m+="| Effetto fotomontaggio | Deve sembrare reale |\n";
+  m+="| Stock photo generiche | Servono render di qualita |\n";
+  m+="| Troppo luxury | Target mainstream |\n\n";
+  m+="### AI Image Prompt\n\n";
+  m+="> Modern Italian interior, freshly renovated, bright natural lighting, warm tones, clean minimal aesthetic, high-end real estate photography, tech-forward atmosphere with purple accent lighting, professional architectural render quality, aspirational yet achievable feel\n\n---\n\n";
+  m+="## 06 — Positioning & Strategy\n\n";
+  m+="### The Agentic Engine\n\n";
+  m+="Non un tool. Una forza lavoro digitale: Computer Vision + LLM + Dati Proprietari.\n\n";
+  m+="### I 3 Pilastri\n\n";
+  m+="| Pilastro | Descrizione |\n|----------|-------------|\n";
+  m+="| **AI Visual Marketing** | Render 3D, Virtual Tour, Video Social, AI Avatars, Brochure, Landing Page |\n";
+  m+="| **AI Compliance & OPS** | Smart Docs, OCR, Agentic Check, Cross-Check difformita, Checklist rogito |\n";
+  m+="| **Sales Automation** | Sync CRM/portali, AI Assistant 24/7, Lead nurturing automatico |\n\n";
+  m+="### Technology Stack\n\n";
+  m+="| Layer | Funzione |\n|-------|----------|\n";
+  m+="| **Intelligent Ingestion** | OCR, classificazione automatica, drag&drop |\n";
+  m+="| **The Reasoning Core** | Computer Vision + LLM + Dati Proprietari |\n";
+  m+="| **Generative Output** | Plan -> Render -> Tour -> Brochure -> Landing -> Video |\n";
+  m+="| **Proprietary Data** | Storico costi reali per location |\n\n";
+  m+="### Business Model — Hybrid SaaS + RaaS\n\n";
+  m+="> Non compri software. Compri risultati. Result-as-a-Service.\n\n";
+  m+="### Roadmap\n\n";
+  m+="| Fase | Periodo | Focus |\n|------|---------|-------|\n";
+  m+="| **Validation** | Q4 2025 | SaaS + Gen-AI + 1000 clienti + 500k ARR |\n";
+  m+="| **Agentic Scale-Up** | Q3 2026 | Video Suite + Doc-Intelligence + 1M ARR |\n";
+  m+="| **Ecosystem** | 2027 | Voice AI + Deep CRM + Ad-Tech Autopilot |\n";
+  m+="| **BIM Standard** | 2028 | Digital Twin + Universal Protocol + EU Expansion |\n";
+  m+="| **Exit** | 2029 | CRM Acquisition o AI Models Integration |\n\n";
+  m+="---\n\n## 07 — Components\n\n";
+  m+="### Buttons\n- Primary CTA: pill purple #4F23CC\n- Outline: border purple, trasparente\n- Gradient: linear-gradient #7A00DF -> #06B6D4\n- Sizes: Small (8px 18px), Default (12px 28px), Large (16px 36px)\n\n";
+  m+="### Badges\n- Purple: rgba(122,0,223,0.08)\n- Green: rgba(0,208,132,0.08)\n- Orange: rgba(249,115,22,0.08)\n- Cyan: rgba(6,182,212,0.08)\n\n";
+  m+="---\n\n## 08 — Valori Aziendali\n\n";
+  m+="| Valore | Descrizione |\n|--------|-------------|\n";
+  m+="| **Trasparenza e Fiducia** | Chiarezza su costi, tempi, qualifiche. Ogni euro tracciato. |\n";
+  m+="| **Tecnologia** | Piattaforma intuitiva. L'AI come forza lavoro, non feature. |\n";
+  m+="| **Impatto Sociale** | Pratiche sostenibili, transizione energetica, abitazioni green. |\n\n";
+  m+="---\n\n*Metacasa Brand Guidelines v2.1 — Aprile 2026*\n*brand.metacasa.ai*\n";
+  var blob=new Blob([m],{type:"text/markdown"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="metacasa-brand-guidelines-2026.md";a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// Download CSS tokens
+function downloadCSS(){
+  const css=`:root {
+  /* Colors */
+  --mc-purple: #7A00DF;
+  --mc-deep-purple: #4F23CC;
+  --mc-violet: #6D28D9;
+  --mc-orange: #F97316;
+  --mc-cyan: #06B6D4;
+  --mc-green: #00D084;
+  --mc-black: #000000;
+  --mc-dark: #212121;
+  --mc-gray: #ABB8C3;
+  --mc-light: #EEEEEE;
+  --mc-white: #FFFFFF;
+  --mc-gradient-ai: linear-gradient(135deg, #7A00DF, #06B6D4);
+  /* Typography */
+  --mc-font-heading: 'Lato', system-ui, sans-serif;
+  --mc-font-accent: 'Montserrat', system-ui, sans-serif;
+  --mc-font-body: 'Lato', system-ui, sans-serif;
+  --mc-font-mono: 'JetBrains Mono', monospace;
+  /* Spacing */
+  --mc-space-xs: 0.25rem;
+  --mc-space-sm: 0.5rem;
+  --mc-space-md: 1rem;
+  --mc-space-lg: 1.5rem;
+  --mc-space-xl: 2rem;
+  /* Radius */
+  --mc-radius-sm: 4px;
+  --mc-radius-md: 8px;
+  --mc-radius-lg: 12px;
+  --mc-radius-xl: 16px;
+  --mc-radius-full: 9999px;
+}`;
+  const blob=new Blob([css],{type:'text/css'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='metacasa-tokens.css';a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// Download JSON tokens
+function downloadJSON(){
+  const tokens={colors:{purple:"#7A00DF",deepPurple:"#4F23CC",violet:"#6D28D9",orange:"#F97316",cyan:"#06B6D4",green:"#00D084",black:"#000000",dark:"#212121",gray:"#ABB8C3",light:"#EEEEEE",white:"#FFFFFF"},gradients:{ai:"linear-gradient(135deg, #7A00DF, #06B6D4)"},typography:{heading:"Lato",accent:"Montserrat",body:"Lato",mono:"JetBrains Mono"},spacing:{xs:"0.25rem",sm:"0.5rem",md:"1rem",lg:"1.5rem",xl:"2rem"},radius:{sm:"4px",md:"8px",lg:"12px",xl:"16px",full:"9999px"}};
+  const blob=new Blob([JSON.stringify(tokens,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='metacasa-tokens.json';a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// Download Component CSS
+function downloadComponentCSS(){
+  const css=`.mc-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-family:'Lato',sans-serif;font-size:16px;font-weight:600;color:#fff;background:#4F23CC;border:none;border-radius:9999px;cursor:pointer;transition:all .2s;text-decoration:none}
+.mc-btn:hover{background:#3d1aa3;box-shadow:0 4px 15px rgba(79,35,204,.3)}
+.mc-btn--outline{background:transparent;color:#4F23CC;border:2px solid #4F23CC}
+.mc-btn--outline:hover{background:#4F23CC;color:#fff}
+.mc-btn--gradient{background:linear-gradient(135deg,#7A00DF,#06B6D4)}
+.mc-btn--gradient:hover{box-shadow:0 4px 20px rgba(122,0,223,.4)}
+.mc-btn--sm{padding:8px 18px;font-size:13px}
+.mc-btn--lg{padding:16px 36px;font-size:18px}
+
+.mc-badge{display:inline-flex;padding:5px 14px;font-size:12px;font-weight:600;border-radius:9999px}
+.mc-badge--purple{background:rgba(122,0,223,.08);color:#7A00DF}
+.mc-badge--green{background:rgba(0,208,132,.08);color:#059669}
+.mc-badge--orange{background:rgba(249,115,22,.08);color:#ea580c}
+.mc-badge--cyan{background:rgba(6,182,212,.08);color:#0891b2}
+
+.mc-blockquote{border-left:3px solid #7A00DF;background:rgba(122,0,223,.03);padding:1rem 1.5rem;border-radius:0 8px 8px 0;font-style:italic}
+
+.mc-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.5rem;transition:transform .2s,box-shadow .2s}
+.mc-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+`;
+  const blob=new Blob([css],{type:'text/css'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='metacasa-components.css';a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// Download Component HTML snippets
+function downloadComponentHTML(){
+  var h="<!-- Metacasa UI Components -->\n\n";
+  h+="<!-- Buttons -->\n";
+  h+='<button class="mc-btn">Activate your Agent</button>\n';
+  h+='<button class="mc-btn mc-btn--outline">Learn More</button>\n';
+  h+='<button class="mc-btn mc-btn--gradient">Get Started</button>\n';
+  h+='<button class="mc-btn mc-btn--sm">Small</button>\n';
+  h+='<button class="mc-btn mc-btn--lg">Large</button>\n\n';
+  h+="<!-- Badges -->\n";
+  h+='<span class="mc-badge mc-badge--purple">Agentic AI</span>\n';
+  h+='<span class="mc-badge mc-badge--green">Active</span>\n';
+  h+='<span class="mc-badge mc-badge--orange">Urgent</span>\n';
+  h+='<span class="mc-badge mc-badge--cyan">Tech</span>\n\n';
+  h+="<!-- Blockquote -->\n";
+  h+='<blockquote class="mc-blockquote">Non un tool. Una forza lavoro digitale.</blockquote>\n';
+  var blob=new Blob([h],{type:"text/html"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);a.download="metacasa-components.html";a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
 </body>
 </html>
